@@ -350,6 +350,17 @@ def api_search_cloud_presets():
     return get_available_presets()
 
 
+@app.get("/api/search-cloud/competitor/{competitor_id}")
+def api_search_cloud_competitor(competitor_id: str):
+    """Generates competitor-specific forensic search cloud with their real ads, keywords and doubts."""
+    try:
+        from src.services.answerthepublic import AnswerThePublicEngine
+        engine = AnswerThePublicEngine()
+        return engine.build_cloud_for_competitor(competitor_id)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao processar nuvem do concorrente: {str(e)}")
+
+
 @app.get("/api/export-pdf")
 def export_pdf(focus: str = Query("master")):
     """Generates and serves the complete Master 360° PDF dossier."""

@@ -305,10 +305,21 @@
       <!-- SEARCH INPUT & QUICK PRESET TAGS -->
       <div class="clarity-card rounded-xl p-5 space-y-4">
         
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <div class="flex flex-col md:flex-row items-stretch md:items-center gap-3">
+          <!-- Competitor Selector Dropdown -->
+          <div class="w-full md:w-80 shrink-0">
+            <div class="relative">
+              <i data-lucide="building-2" class="w-4 h-4 text-sky-600 absolute left-3.5 top-3"></i>
+              <select id="atp-competitor-select" onchange="handleCompetitorSelect(this.value)" class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-10 pr-8 py-2.5 text-xs text-slate-900 font-semibold focus:outline-none focus:border-sky-500 focus:bg-white transition-all shadow-inner cursor-pointer appearance-none">
+                <option value="">🎯 Filtrar por Concorrente Específico...</option>
+              </select>
+              <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 absolute right-3 top-3 pointer-events-none"></i>
+            </div>
+          </div>
+
           <div class="relative flex-1">
             <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3"></i>
-            <input type="text" id="atp-search-input" value="revalida inep" onkeydown="if(event.key==='Enter') handleAtpSearch()" placeholder="Digite uma palavra-chave (ex: revalida inep, prova prática inep, mundo revalida, estrategia med)..." class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white transition-all shadow-inner font-medium">
+            <input type="text" id="atp-search-input" value="revalida inep" onkeydown="if(event.key==='Enter') handleAtpSearch()" placeholder="Ou pesquise um termo livre (ex: revalida inep, prova prática inep, mundo revalida)..." class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white transition-all shadow-inner font-medium">
           </div>
           <button onclick="handleAtpSearch()" id="atp-search-btn" class="bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold px-5 py-2.5 rounded-lg transition-all shadow-sm flex items-center justify-center gap-2 shrink-0">
             <i data-lucide="search" class="w-4 h-4"></i>
@@ -423,6 +434,98 @@
         <!-- Dynamically populated via renderCategorizedCards() -->
       </div>
 
+      <!-- FLOATING INTELLIGENCE DRAWER / DETAIL MODAL -->
+      <div id="atp-node-modal" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 max-w-lg w-full overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+          
+          <!-- MODAL HEADER -->
+          <div class="p-5 border-b border-slate-100 flex items-start justify-between gap-3 bg-slate-50/80">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span id="atp-modal-badge" class="px-2.5 py-0.5 rounded text-[11px] font-bold border">
+                  Categoria
+                </span>
+                <span id="atp-modal-intent" class="text-[11px] font-semibold text-slate-500">
+                  Intenção
+                </span>
+              </div>
+              <h3 id="atp-modal-title" class="text-base font-bold text-slate-900 leading-snug">
+                Termo de Busca
+              </h3>
+            </div>
+            <button onclick="closeAtpNodeModal()" class="text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- MODAL BODY -->
+          <div class="p-5 space-y-4 text-xs">
+            
+            <!-- ANÚNCIO VINCULADO NO GOOGLE ADS (SE HOUVER) -->
+            <div id="atp-modal-ad-section" class="hidden">
+              <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+                <i data-lucide="badge-check" class="w-3.5 h-3.5 text-emerald-600"></i> Anúncio Ativo Vinculado no Google Ads
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 space-y-2.5">
+                <div class="flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-emerald-700 flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Patrocinado · Google Ads
+                  </span>
+                  <span id="atp-modal-ad-advertiser" class="text-slate-500 font-medium truncate max-w-[200px]"></span>
+                </div>
+                <div>
+                  <h4 id="atp-modal-ad-headline" class="text-sm font-bold text-sky-800 leading-snug"></h4>
+                  <div id="atp-modal-ad-domain" class="text-[11px] text-emerald-700 font-mono mt-0.5"></div>
+                </div>
+                <p id="atp-modal-ad-body" class="text-slate-600 leading-relaxed"></p>
+                
+                <div class="pt-2 border-t border-slate-200 flex items-center justify-between gap-2">
+                  <a id="atp-modal-ad-transparency" href="#" target="_blank" class="inline-flex items-center gap-1 text-[11px] font-semibold text-sky-600 hover:text-sky-800">
+                    <span>Ver no Transparency Center</span>
+                    <i data-lucide="external-link" class="w-3 h-3"></i>
+                  </a>
+                  <button id="atp-modal-copy-ad-btn" onclick="copyModalAdCopy()" class="px-2.5 py-1 rounded bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 font-semibold text-[11px] flex items-center gap-1">
+                    <i data-lucide="copy" class="w-3 h-3"></i>
+                    <span>Copiar Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- QUANDO É UMA DÚVIDA / TERMO ORGÂNICO -->
+            <div id="atp-modal-organic-section">
+              <div class="p-3.5 rounded-xl bg-sky-50 border border-sky-100 text-sky-900 space-y-1">
+                <div class="font-bold flex items-center gap-1.5 text-xs text-sky-950">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5 text-sky-600"></i> Inteligência & Estratégia de Conteúdo / Search
+                </div>
+                <p id="atp-modal-organic-text" class="text-[11px] text-sky-800 leading-relaxed">
+                  Este termo possui forte demanda de busca orgânica por médicos formados no exterior. Criar anúncios no Google Search ou vídeos no YouTube cobrindo exatamente esta dor gera alto índice de conversão e autoridade direta perante o candidato.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- MODAL FOOTER -->
+          <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-3">
+            <button onclick="copyModalQuery()" class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 text-xs font-semibold shadow-2xs transition-all">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Copiar Termo</span>
+            </button>
+            <div class="flex items-center gap-2">
+              <button onclick="closeAtpNodeModal()" class="px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-800 text-xs font-semibold">
+                Fechar
+              </button>
+              <a id="atp-modal-google-btn" href="#" target="_blank" class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold shadow-xs transition-all">
+                <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                <span>Pesquisar no Google</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
   </main>
@@ -471,6 +574,7 @@
 
         renderOurBrandBenchmark();
         renderCompetitorCards(filterCompetitorsList(externalCompetitors));
+        populateCompetitorDropdown();
         lucide.createIcons();
       } catch (err) {
         console.error("Erro ao carregar dados:", err);
@@ -550,6 +654,11 @@
                   <div class="text-sm font-bold text-amber-700 leading-tight">${c.estimated_monthly_spend || 'R$ 3.500 - 6.500/mês'}</div>
                   <div class="text-[11px] text-slate-400">Hiperfocado no público do Revalida</div>
                 </div>
+
+                <button onclick="openCompetitorCloud('mundo_revalida')" class="flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-white text-emerald-800 hover:bg-emerald-50 border border-emerald-300 transition-all shadow-2xs">
+                  <i data-lucide="compass" class="w-3.5 h-3.5 text-emerald-600"></i>
+                  <span>Nossa Nuvem de Termos</span>
+                </button>
 
                 <button onclick="toggleOurBrandExpand()" class="flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold transition-all ${
                   isOurBrandExpanded 
@@ -766,6 +875,11 @@
                   <div class="text-sm font-bold text-amber-700 max-w-xs leading-tight">${c.estimated_monthly_spend || 'R$ 2.000 - 5.000/mês'}</div>
                   <div class="text-[10px] text-slate-400">Google Search & YouTube</div>
                 </div>
+
+                <button onclick="openCompetitorCloud('${c.id}')" class="w-full sm:w-auto flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-lg text-xs font-semibold bg-sky-50 text-sky-800 hover:bg-sky-100 hover:text-sky-900 border border-sky-300 transition-all min-h-[42px] shadow-2xs" title="Ver Nuvem de Palavras & Anúncios deste Concorrente no AnswerThePublic">
+                  <i data-lucide="compass" class="w-4 h-4 text-sky-600"></i>
+                  <span>Nuvem de Perguntas &amp; Ads</span>
+                </button>
 
                 <!-- SINGLE EXPAND BUTTON -->
                 <button onclick="toggleExpand('${c.id}')" class="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold transition-all min-h-[42px] ${
@@ -1477,6 +1591,80 @@
       lucide.createIcons();
     }
 
+    function populateCompetitorDropdown() {
+      const select = document.getElementById('atp-competitor-select');
+      if (!select) return;
+
+      let html = '<option value="">🎯 Filtrar por Concorrente Específico...</option>';
+      if (ourBrand) {
+        html += `<option value="${ourBrand.id}">👑 ${ourBrand.name} (NÓS - Benchmark)</option>`;
+      }
+      if (externalCompetitors && externalCompetitors.length > 0) {
+        html += '<optgroup label="Concorrentes do Mercado">';
+        externalCompetitors.forEach(c => {
+          const adsTag = c.has_google_ads ? '🟢 Com Ads' : '⚪ Sem Ads';
+          html += `<option value="${c.id}">${c.name} (${adsTag} - DR ${c.domain_reputation_score || '-'})</option>`;
+        });
+        html += '</optgroup>';
+      }
+      select.innerHTML = html;
+    }
+
+    async function handleCompetitorSelect(compId) {
+      if (!compId) {
+        const input = document.getElementById('atp-search-input');
+        const term = (input && input.value.trim()) || 'revalida inep';
+        await loadSearchCloud(term);
+        return;
+      }
+      await loadCompetitorCloud(compId);
+    }
+
+    async function openCompetitorCloud(compId) {
+      switchView('atp');
+      const select = document.getElementById('atp-competitor-select');
+      if (select) {
+        select.value = compId;
+      }
+      await loadCompetitorCloud(compId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    async function loadCompetitorCloud(compId) {
+      const btn = document.getElementById('atp-search-btn');
+      const input = document.getElementById('atp-search-input');
+      const select = document.getElementById('atp-competitor-select');
+      if (select) select.value = compId;
+
+      if (btn) {
+        btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Carregando...</span>`;
+      }
+
+      try {
+        const res = await fetch(`/api/search-cloud/competitor/${encodeURIComponent(compId)}`);
+        if (!res.ok) throw new Error("Erro ao carregar dados do concorrente");
+        const data = await res.json();
+        currentAtpCloud = data;
+
+        if (input) input.value = data.competitor_name || data.term || compId;
+        document.getElementById('atp-current-term').innerText = data.competitor_name || data.term;
+        document.getElementById('atp-total-queries-badge').innerText = `${data.total_queries} Termos & Perguntas`;
+        document.getElementById('atp-cloud-desc').innerText = data.description || `Raio-X de buscas, dúvidas e anúncios de ${data.competitor_name}`;
+
+        renderRadialWheel(data);
+        renderCategorizedCards(data);
+        lucide.createIcons();
+      } catch (err) {
+        console.error("Erro ao carregar nuvem do concorrente:", err);
+        showToast("Erro ao carregar dados do concorrente.");
+      } finally {
+        if (btn) {
+          btn.innerHTML = `<i data-lucide="search" class="w-4 h-4"></i><span>Mapear Perguntas</span>`;
+          lucide.createIcons();
+        }
+      }
+    }
+
     async function loadAtpPresets() {
       try {
         const res = await fetch('/api/search-cloud/presets');
@@ -1505,7 +1693,11 @@
     async function loadSearchCloud(term) {
       const btn = document.getElementById('atp-search-btn');
       const input = document.getElementById('atp-search-input');
+      const select = document.getElementById('atp-competitor-select');
       if (input) input.value = term;
+      if (select && select.value && !term.toLowerCase().includes(select.value)) {
+        select.value = '';
+      }
 
       if (btn) {
         btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Carregando...</span>`;
@@ -1571,6 +1763,13 @@
       }
     }
 
+    function handleWheelNodeClick(catKey, idx) {
+      if (!currentAtpCloud || !currentAtpCloud.categories) return;
+      const cat = currentAtpCloud.categories[catKey];
+      if (!cat || !cat.items || !cat.items[idx]) return;
+      openAtpNodeModal(cat.items[idx], catKey);
+    }
+
     function renderRadialWheel(cloud) {
       const svg = document.getElementById('atp-radial-svg');
       if (!svg) return;
@@ -1580,11 +1779,17 @@
       const rCategory = 200;
       const rLeaf = 430;
 
-      const categories = [
-        { key: 'perguntas', name: 'PERGUNTAS', color: '#0284c7', bg: '#e0f2fe' },
-        { key: 'preposicoes', name: 'PREPOSIÇÕES', color: '#059669', bg: '#dcfce7' },
-        { key: 'comparacoes', name: 'COMPARAÇÕES', color: '#d97706', bg: '#fef3c7' },
-        { key: 'alta_intencao', name: 'ALTA INTENÇÃO', color: '#4f46e5', bg: '#e0e7ff' }
+      const isCompetitorCloud = Boolean(cloud.categories && (cloud.categories.google_ads || cloud.categories.confronto));
+      const categories = isCompetitorCloud ? [
+        { key: 'perguntas', name: 'DÚVIDAS & REPUTAÇÃO', color: '#0284c7', bg: '#e0f2fe', short: 'DÚVIDAS' },
+        { key: 'google_ads', name: 'GOOGLE ADS', color: '#059669', bg: '#dcfce7', short: 'ADS' },
+        { key: 'buscas_organicas', name: 'BUSCAS ORGÂNICAS', color: '#d97706', bg: '#fef3c7', short: 'BUSCAS' },
+        { key: 'confronto', name: 'CONFRONTO COMERCIAL', color: '#7c3aed', bg: '#ede9fe', short: 'VS NÓS' }
+      ] : [
+        { key: 'perguntas', name: 'PERGUNTAS', color: '#0284c7', bg: '#e0f2fe', short: 'PERG' },
+        { key: 'preposicoes', name: 'PREPOSIÇÕES', color: '#059669', bg: '#dcfce7', short: 'PREP' },
+        { key: 'comparacoes', name: 'COMPARAÇÕES', color: '#d97706', bg: '#fef3c7', short: 'COMP' },
+        { key: 'alta_intencao', name: 'ALTA INTENÇÃO', color: '#4f46e5', bg: '#e0e7ff', short: 'INTEN' }
       ];
 
       let totalItems = 0;
@@ -1623,7 +1828,7 @@
 
         const items = cat.data.items;
         items.forEach((item, idx) => {
-          const itemAngle = startAngle + (idx + 0.5) * (sectorAngle / items.length);
+          const itemAngle = startAngle + (idx + 0.5) * (sectorAngle / Math.max(items.length, 1));
           const leafX = cx + rLeaf * Math.cos(itemAngle);
           const leafY = cy + rLeaf * Math.sin(itemAngle);
 
@@ -1636,7 +1841,7 @@
 
           svgHtml += `
             <path id="${pathId}" d="M ${catX} ${catY} C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${leafX} ${leafY}" fill="none" stroke="${cat.color}" stroke-width="1.5" opacity="0.45" class="transition-all duration-200"/>
-            <g class="cursor-pointer group" onclick="window.open('https://www.google.com/search?q=${encodeURIComponent(item.query)}', '_blank')" onmouseenter="highlightPath('${pathId}', true)" onmouseleave="highlightPath('${pathId}', false)">
+            <g class="cursor-pointer group" onclick="handleWheelNodeClick('${cat.key}', ${idx})" onmouseenter="highlightPath('${pathId}', true)" onmouseleave="highlightPath('${pathId}', false)">
               <circle cx="${leafX}" cy="${leafY}" r="4.5" fill="${cat.color}" stroke="#ffffff" stroke-width="1.5"/>
           `;
 
@@ -1658,8 +1863,8 @@
         svgHtml += `
           <g>
             <circle cx="${catX}" cy="${catY}" r="26" fill="${cat.bg}" stroke="${cat.color}" stroke-width="2.5" filter="url(#shadow)"/>
-            <text x="${catX}" y="${catY + 3.5}" text-anchor="middle" font-size="9" font-family="Inter, sans-serif" font-weight="800" fill="${cat.color}">
-              ${cat.name.slice(0, 4)}
+            <text x="${catX}" y="${catY + 3.5}" text-anchor="middle" font-size="8.5" font-family="Inter, sans-serif" font-weight="800" fill="${cat.color}">
+              ${cat.short || cat.name.slice(0, 4)}
             </text>
           </g>
         `;
@@ -1667,15 +1872,18 @@
         currentAngle += sectorAngle + paddingAngle;
       });
 
+      const centerTitle = (cloud.competitor_name || cloud.term || 'REVALIDA').toUpperCase().slice(0, 16);
+      const centerSubtitle = (cloud.is_competitor || isCompetitorCloud) ? 'RAIO-X CONCORRENTE' : 'MUNDO REVALIDA';
+
       svgHtml += `
         <g filter="url(#shadow)">
-          <circle cx="${cx}" cy="${cy}" r="62" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
-          <circle cx="${cx}" cy="${cy}" r="56" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
-          <text x="${cx}" y="${cy - 8}" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" font-weight="800" fill="#0f172a">
-            ${cloud.term.toUpperCase().slice(0, 16)}
+          <circle cx="${cx}" cy="${cy}" r="64" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+          <circle cx="${cx}" cy="${cy}" r="58" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="${cx}" y="${cy - 6}" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" font-weight="800" fill="#0f172a">
+            ${centerTitle}
           </text>
-          <text x="${cx}" y="${cy + 12}" text-anchor="middle" font-size="8.5" font-family="Inter, sans-serif" font-weight="600" fill="#059669">
-            MUNDO REVALIDA
+          <text x="${cx}" y="${cy + 13}" text-anchor="middle" font-size="8" font-family="Inter, sans-serif" font-weight="700" fill="${isCompetitorCloud ? '#0284c7' : '#059669'}">
+            ${centerSubtitle}
           </text>
         </g>
       `;
@@ -1701,7 +1909,13 @@
       if (!wrapper) return;
 
       const cats = cloud.categories;
-      const order = [
+      const isCompetitorCloud = Boolean(cloud.categories && (cloud.categories.google_ads || cloud.categories.confronto));
+      const order = isCompetitorCloud ? [
+        { key: 'perguntas', title: 'Dúvidas Frequentes & Reputação', color: '#0284c7', icon: 'help-circle', badgeBg: 'bg-sky-50 text-sky-800 border-sky-200' },
+        { key: 'google_ads', title: 'Palavras-chave em Anúncios Google Ads', color: '#059669', icon: 'badge-check', badgeBg: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+        { key: 'buscas_organicas', title: 'Buscas Orgânicas dos Candidatos', color: '#d97706', icon: 'trending-up', badgeBg: 'bg-amber-50 text-amber-800 border-amber-200' },
+        { key: 'confronto', title: 'Confronto Comercial vs Mundo Revalida', color: '#7c3aed', icon: 'zap', badgeBg: 'bg-purple-50 text-purple-800 border-purple-200' }
+      ] : [
         { key: 'perguntas', title: 'Perguntas dos Candidatos', color: '#0284c7', icon: 'help-circle', badgeBg: 'bg-sky-50 text-sky-800 border-sky-200' },
         { key: 'preposicoes', title: 'Preposições & Contextos', color: '#059669', icon: 'git-merge', badgeBg: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
         { key: 'comparacoes', title: 'Comparações & Decisão', color: '#d97706', icon: 'git-pull-request', badgeBg: 'bg-amber-50 text-amber-800 border-amber-200' },
@@ -1722,7 +1936,7 @@
                 </div>
                 <div>
                   <h4 class="text-sm font-bold text-slate-900">${c.title}</h4>
-                  <span class="text-xs text-slate-500">${items.length} termos identificados</span>
+                  <span class="text-xs text-slate-500">${items.length} termos catalogados</span>
                 </div>
               </div>
               <button onclick="copyCategoryQueries('${c.key}')" class="text-slate-400 hover:text-slate-700 p-1.5 rounded hover:bg-slate-100 transition-colors" title="Copiar perguntas desta categoria">
@@ -1732,17 +1946,18 @@
 
             <div class="space-y-2 max-h-[360px] overflow-y-auto pr-1 custom-scroll">
               ${items.length === 0 ? '<div class="text-xs text-slate-400 italic py-4 text-center">Nenhum termo catalogado nesta categoria.</div>' : ''}
-              ${items.map(it => `
-                <div class="p-2.5 rounded-lg bg-slate-50 hover:bg-white border border-slate-200/70 hover:border-slate-300 transition-all flex items-center justify-between gap-3 text-xs group">
+              ${items.map((it, idx) => `
+                <div class="p-2.5 rounded-lg bg-slate-50 hover:bg-white border border-slate-200/70 hover:border-slate-300 transition-all flex items-center justify-between gap-3 text-xs group cursor-pointer" onclick="handleWheelNodeClick('${c.key}', ${idx})">
                   <div class="flex items-center gap-2 flex-1 min-w-0">
                     <span class="px-2 py-0.5 rounded text-[10px] font-bold ${c.badgeBg} border shrink-0">
-                      ${it.modifier}
+                      ${it.modifier || (c.key === 'google_ads' ? 'ADS' : (c.key === 'confronto' ? 'VS' : 'SEO'))}
                     </span>
                     <span class="text-slate-800 font-medium truncate group-hover:text-slate-900">
                       ${it.query}
                     </span>
+                    ${it.ad ? '<span class="px-1.5 py-0.2 rounded text-[9px] bg-emerald-100 text-emerald-800 font-bold border border-emerald-200 shrink-0">Com Anúncio</span>' : ''}
                   </div>
-                  <div class="flex items-center gap-1 shrink-0 opacity-80 group-hover:opacity-100">
+                  <div class="flex items-center gap-1 shrink-0 opacity-80 group-hover:opacity-100" onclick="event.stopPropagation()">
                     <button onclick="copyToClipboard('${it.query.replace(/'/g, "\\'")}', 'Pergunta copiada!')" class="p-1 text-slate-400 hover:text-slate-700 rounded hover:bg-slate-200 transition-colors" title="Copiar pergunta">
                       <i data-lucide="copy" class="w-3.5 h-3.5"></i>
                     </button>
@@ -1757,6 +1972,86 @@
           </div>
         `;
       }).join('');
+    }
+
+    // Modal Details Logic
+    let currentModalItem = null;
+
+    function openAtpNodeModal(item, catKey) {
+      currentModalItem = item;
+      const modal = document.getElementById('atp-node-modal');
+      if (!modal) return;
+
+      const badge = document.getElementById('atp-modal-badge');
+      const intent = document.getElementById('atp-modal-intent');
+      const title = document.getElementById('atp-modal-title');
+      const adSection = document.getElementById('atp-modal-ad-section');
+      const googleBtn = document.getElementById('atp-modal-google-btn');
+
+      const catConfig = {
+        'perguntas': { label: item.modifier ? item.modifier.toUpperCase() : 'DÚVIDA', bg: 'bg-sky-50 text-sky-800 border-sky-200' },
+        'google_ads': { label: 'GOOGLE ADS', bg: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+        'buscas_organicas': { label: 'BUSCA ORGÂNICA', bg: 'bg-amber-50 text-amber-800 border-amber-200' },
+        'confronto': { label: 'CONFRONTO COMERCIAL', bg: 'bg-purple-50 text-purple-800 border-purple-200' },
+        'preposicoes': { label: item.modifier ? item.modifier.toUpperCase() : 'PREPOSIÇÃO', bg: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+        'comparacoes': { label: item.modifier ? item.modifier.toUpperCase() : 'COMPARAÇÃO', bg: 'bg-amber-50 text-amber-800 border-amber-200' },
+        'alta_intencao': { label: item.modifier ? item.modifier.toUpperCase() : 'ALTA INTENÇÃO', bg: 'bg-indigo-50 text-indigo-800 border-indigo-200' }
+      }[catKey] || { label: 'TERMO', bg: 'bg-slate-100 text-slate-800 border-slate-200' };
+
+      badge.className = `px-2.5 py-0.5 rounded text-[11px] font-bold border ${catConfig.bg}`;
+      badge.innerText = catConfig.label;
+      intent.innerText = item.intent ? `Intenção: ${item.intent}` : '';
+      title.innerText = item.query;
+      googleBtn.href = `https://www.google.com/search?q=${encodeURIComponent(item.query)}`;
+
+      if (item.ad) {
+        adSection.classList.remove('hidden');
+        document.getElementById('atp-modal-ad-advertiser').innerText = item.ad.advertiser || '';
+        document.getElementById('atp-modal-ad-headline').innerText = item.ad.headline || 'Anúncio Google Ads';
+        document.getElementById('atp-modal-ad-domain').innerText = item.ad.domain ? `https://${item.ad.domain}` : '';
+        document.getElementById('atp-modal-ad-body').innerText = item.ad.body || '';
+
+        const transparencyLink = document.getElementById('atp-modal-ad-transparency');
+        if (item.ad.transparency_url) {
+          transparencyLink.href = item.ad.transparency_url;
+          transparencyLink.classList.remove('hidden');
+        } else {
+          transparencyLink.classList.add('hidden');
+        }
+      } else {
+        adSection.classList.add('hidden');
+      }
+
+      const organicText = document.getElementById('atp-modal-organic-text');
+      if (catKey === 'confronto') {
+        organicText.innerText = "Termo de comparação ou confronto direto onde o Mundo Revalida tem diferenciais de conversão (simulações com atores reais, sem pegadinhas de decoreba, foco 100% no INEP). Ideal para campanhas de Search com termos de concorrentes.";
+      } else if (catKey === 'perguntas') {
+        organicText.innerText = "Dúvida real e frequente de médicos revalidandos sobre este player. Responder a esta dor diretamente em copys de anúncios no Google Search ou vídeos no YouTube constrói autoridade instantânea.";
+      } else if (catKey === 'buscas_organicas') {
+        organicText.innerText = "Volume expressivo de busca orgânica no Google. Conteúdos focados nesta intenção atraem candidatos qualificados em fase de decisão.";
+      } else {
+        organicText.innerText = "Termo de busca com alto volume de pesquisas no nicho do Revalida INEP. Oportunidade excelente para posicionamento orgânico e campanhas de conversão no Google Search.";
+      }
+
+      modal.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeAtpNodeModal() {
+      const modal = document.getElementById('atp-node-modal');
+      if (modal) modal.classList.add('hidden');
+      currentModalItem = null;
+    }
+
+    function copyModalQuery() {
+      if (!currentModalItem) return;
+      copyToClipboard(currentModalItem.query, "Termo copiado para a área de transferência!");
+    }
+
+    function copyModalAdCopy() {
+      if (!currentModalItem || !currentModalItem.ad) return;
+      const text = `${currentModalItem.ad.headline || ''}\\n${currentModalItem.ad.body || ''}`;
+      copyToClipboard(text, "Copy do anúncio copiado!");
     }
 
     function copyAllAtpQueries() {

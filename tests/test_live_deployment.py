@@ -133,6 +133,20 @@ class TestLiveVercelDeployment(unittest.TestCase):
         self.assertGreaterEqual(len(presets), 5)
         print(f"  [OK] Teste 10: Atalhos rapidos do AnswerThePublic validados ({len(presets)} presets carregados).")
 
+    def test_11_competitor_search_cloud(self):
+        """Verifica se a nuvem de busca forense do concorrente integra anuncios, duvidas e comparativos."""
+        r = requests.get(f"{self.base_url}/api/search-cloud/competitor/hardwork_revalida", timeout=15)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        self.assertEqual(data.get("competitor_id"), "hardwork_revalida")
+        self.assertIn("categories", data)
+        self.assertIn("perguntas", data["categories"])
+        self.assertIn("google_ads", data["categories"])
+        self.assertIn("buscas_organicas", data["categories"])
+        self.assertIn("confronto", data["categories"])
+        self.assertGreaterEqual(data.get("total_queries", 0), 10)
+        print(f"  [OK] Teste 11: Nuvem de Concorrente validada com sucesso ({data['competitor_name']} - {data['total_queries']} termos integrados).")
+
 
 if __name__ == "__main__":
     unittest.main()

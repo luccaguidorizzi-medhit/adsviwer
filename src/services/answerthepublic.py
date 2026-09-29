@@ -324,6 +324,146 @@ class AnswerThePublicEngine:
         cloud["total_queries"] = total
         return cloud
 
+    def build_cloud_for_competitor(self, competitor_id: str) -> Dict[str, Any]:
+        """
+        Gera uma nuvem especializada forense para o concorrente baseada em:
+        1. Dúvidas & Reputação do Player (Perguntas)
+        2. Termos Comprados no Google Ads (Palavras-chave dos anúncios dele)
+        3. Buscas Orgânicas dos Candidatos (Termos reais que trazem tráfego para ele)
+        4. Confronto Comercial vs Mundo Revalida (Comparações diretas de conversão)
+        """
+        from src.database.local_db import LocalDatabase
+        db = LocalDatabase()
+        comp = db.get_competitor_by_id(competitor_id)
+        if not comp:
+            raise ValueError(f"Concorrente '{competitor_id}' não encontrado.")
+
+        name = comp.get("name", "")
+        clean_name = name.replace(" (NÓS)", "").strip()
+        domain = comp.get("domain", "")
+        
+        # Get active ads for this competitor
+        ads = db.get_google_ads(competitor_id=competitor_id)
+        
+        # 1. Dúvidas & Reputação
+        reputacao_items = [
+            {"modifier": "Como", "query": f"como funciona a metodologia do {clean_name}", "intent": "Metodologia", "ad": None},
+            {"modifier": "Qual", "query": f"qual o indice de aprovacao do {clean_name} no revalida", "intent": "Prova Social", "ad": None},
+            {"modifier": "Quanto", "query": f"quanto custa o curso extensivo {clean_name}", "intent": "Preço / Cotação", "ad": None},
+            {"modifier": "Vale a pena", "query": f"{clean_name} vale a pena reclame aqui", "intent": "Reputação", "ad": None},
+            {"modifier": "Opinião", "query": f"{clean_name} revalida inep opiniao de alunos", "intent": "Avaliação de Alunos", "ad": None}
+        ]
+
+        # 2. Termos Comprados no Google Ads
+        google_ads_items = []
+        kw_raw = comp.get("google_ads_keywords", "") or ""
+        kw_list = [k.strip() for k in kw_raw.split(",") if k.strip()]
+        
+        # Also extract keywords from ads
+        for ad in ads:
+            ad_kws = [k.strip() for k in (ad.get("matched_keywords") or "").split(",") if k.strip()]
+            for ak in ad_kws:
+                if ak not in kw_list:
+                    kw_list.append(ak)
+
+        if not kw_list:
+            kw_list = [f"curso {clean_name.lower()}", f"{clean_name.lower()} revalida inep", "curso preparatorio revalida"]
+
+        for i, kw in enumerate(kw_list[:8]):
+            matched_ad = ads[i % len(ads)] if ads else None
+            ad_info = None
+            if matched_ad:
+                ad_info = {
+                    "headline": matched_ad.get("headline"),
+                    "body_text": matched_ad.get("body_text"),
+                    "advertiser_name": matched_ad.get("advertiser_name") or comp.get("legal_name"),
+                    "target_url": matched_ad.get("target_url") or comp.get("website_url"),
+                    "transparency_url": comp.get("google_ads_transparency_url")
+                }
+            google_ads_items.append({
+                "modifier": "Google Ads",
+                "query": kw,
+                "intent": "Palavra-Chave Paga (Search / YouTube)",
+                "ad": ad_info
+            })
+
+        # 3. Buscas Orgânicas dos Candidatos
+        organic_items = []
+        user_terms_raw = comp.get("user_search_terms", "") or ""
+        organic_terms_raw = comp.get("seo_top_organic_terms", "") or ""
+        combined_organic = [t.strip() for t in (user_terms_raw + "," + organic_terms_raw).split(",") if t.strip()]
+        
+        seen = set()
+        dedup_organic = []
+        for t in combined_organic:
+            tl = t.lower()
+            if tl not in seen:
+                seen.add(tl)
+                dedup_organic.append(t)
+
+        if not dedup_organic:
+            dedup_organic = [f"{clean_name.lower()} simulados", f"{clean_name.lower()} questoes inep", f"{clean_name.lower()} aulas gratuitas"]
+
+        for t in dedup_organic[:8]:
+            organic_items.append({
+                "modifier": "Orgânico",
+                "query": t,
+                "intent": "Busca Orgânica de Alunos",
+                "ad": None
+            })
+
+        # 4. Confronto Comercial vs Mundo Revalida
+        confronto_items = [
+            {"modifier": "Vs", "query": f"{clean_name} vs mundo revalida", "intent": "Comparativo Direto", "ad": None},
+            {"modifier": "Diferença", "query": f"diferenca entre {clean_name} e mundo revalida", "intent": "Diferencial Competitivo", "ad": None},
+            {"modifier": "Qual Melhor", "query": f"qual melhor para prova pratica: mundo revalida ou {clean_name}", "intent": "Decisão 2ª Fase", "ad": None},
+            {"modifier": "Aprovação", "query": f"taxa de aprovacao mundo revalida comparada ao {clean_name}", "intent": "Prova Social", "ad": None},
+            {"modifier": "Simulação", "query": f"atores reais mundo revalida vs simulados do {clean_name}", "intent": "Diferencial de Método", "ad": None}
+        ]
+
+        total = len(reputacao_items) + len(google_ads_items) + len(organic_items) + len(confronto_items)
+
+        return {
+            "is_competitor_cloud": True,
+            "competitor_id": competitor_id,
+            "competitor_name": clean_name,
+            "term": clean_name,
+            "domain": domain,
+            "legal_name": comp.get("legal_name"),
+            "cnpj": comp.get("cnpj"),
+            "transparency_url": comp.get("google_ads_transparency_url"),
+            "has_google_ads": comp.get("has_google_ads"),
+            "ads_count": len(ads),
+            "description": f"Raio-X Forense de Termos & Anúncios: {clean_name} ({domain})",
+            "total_queries": total,
+            "categories": {
+                "perguntas": {
+                    "label": f"1. Dúvidas & Reputação ({clean_name})",
+                    "color": "#0284c7",
+                    "icon": "help-circle",
+                    "items": reputacao_items
+                },
+                "google_ads": {
+                    "label": f"2. Termos Comprados no Google Ads ({len(google_ads_items)})",
+                    "color": "#059669",
+                    "icon": "target",
+                    "items": google_ads_items
+                },
+                "buscas_organicas": {
+                    "label": f"3. Buscas Orgânicas dos Alunos ({len(organic_items)})",
+                    "color": "#d97706",
+                    "icon": "search",
+                    "items": organic_items
+                },
+                "confronto": {
+                    "label": "4. Confronto Comercial vs Mundo Revalida",
+                    "color": "#4f46e5",
+                    "icon": "shield-alert",
+                    "items": confronto_items
+                }
+            }
+        }
+
 
 def get_available_presets() -> List[Dict[str, str]]:
     """Returns quick preset search tags for the UI."""
