@@ -10,3 +10,5 @@ temp_*
 .agents/
 data/test_transparency.py
 data/user_prompt_goal.txt
+
+.vercel

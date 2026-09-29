@@ -11,7 +11,7 @@ import requests
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
-BASE_URL = "https://competitor-monitor-flax.vercel.app"
+BASE_URL = "https://adsviwer.medhit.click"
 
 
 class TestLiveVercelDeployment(unittest.TestCase):
