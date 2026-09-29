@@ -112,6 +112,27 @@ class TestLiveVercelDeployment(unittest.TestCase):
         self.assertGreater(len(r.content), 100_000)
         print(f"  [OK] Teste 08: Geracao e download do PDF de 17 paginas validado com perfeicao ({len(r.content):,} bytes).")
 
+    def test_09_answerthepublic_search_cloud(self):
+        """Verifica se o endpoint da nuvem de busca estilo AnswerThePublic retorna perguntas categorizadas."""
+        r = requests.get(f"{self.base_url}/api/search-cloud?term=revalida+inep", timeout=15)
+        self.assertEqual(r.status_code, 200)
+        data = r.json()
+        self.assertEqual(data.get("term"), "revalida inep")
+        self.assertGreaterEqual(data.get("total_queries", 0), 20)
+        self.assertIn("categories", data)
+        self.assertIn("perguntas", data["categories"])
+        self.assertIn("comparacoes", data["categories"])
+        print(f"  [OK] Teste 09: AnswerThePublic Search Cloud validada ({data['total_queries']} perguntas, comparacoes e termos catalogados).")
+
+    def test_10_answerthepublic_presets(self):
+        """Verifica se os atalhos rapidos da nuvem AnswerThePublic estao configurados."""
+        r = requests.get(f"{self.base_url}/api/search-cloud/presets", timeout=15)
+        self.assertEqual(r.status_code, 200)
+        presets = r.json()
+        self.assertIsInstance(presets, list)
+        self.assertGreaterEqual(len(presets), 5)
+        print(f"  [OK] Teste 10: Atalhos rapidos do AnswerThePublic validados ({len(presets)} presets carregados).")
+
 
 if __name__ == "__main__":
     unittest.main()

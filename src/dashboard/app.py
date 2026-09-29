@@ -332,6 +332,24 @@ def api_market_keywords(
     return db.get_market_keyword_rankings(cluster=cluster, q=q)
 
 
+@app.get("/api/search-cloud")
+def api_search_cloud(term: str = Query("revalida inep")):
+    """Generates or returns cached search intent cloud inspired by AnswerThePublic."""
+    try:
+        from src.services.answerthepublic import AnswerThePublicEngine
+        engine = AnswerThePublicEngine()
+        return engine.build_cloud_for_term(term)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erro ao processar AnswerThePublic: {str(e)}")
+
+
+@app.get("/api/search-cloud/presets")
+def api_search_cloud_presets():
+    """Returns quick preset search tags for the AnswerThePublic visualizer."""
+    from src.services.answerthepublic import get_available_presets
+    return get_available_presets()
+
+
 @app.get("/api/export-pdf")
 def export_pdf(focus: str = Query("master")):
     """Generates and serves the complete Master 360° PDF dossier."""

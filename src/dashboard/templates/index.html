@@ -156,11 +156,34 @@
     </div>
   </header>
 
+  <!-- SECONDARY NAVIGATION TABS -->
+  <div class="bg-white border-b border-slate-200 sticky top-16 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div class="flex items-center space-x-1 sm:space-x-3 py-2">
+        <button id="nav-btn-radar" onclick="switchView('radar')" class="nav-tab-btn flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-lg transition-all text-emerald-700 bg-emerald-50 border border-emerald-200 shadow-sm">
+          <i data-lucide="crosshair" class="w-4 h-4 text-emerald-600"></i>
+          <span>Radar &amp; Dossiê Concorrentes</span>
+        </button>
+        <button id="nav-btn-atp" onclick="switchView('atp')" class="nav-tab-btn flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-lg transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100">
+          <i data-lucide="compass" class="w-4 h-4 text-sky-600"></i>
+          <span>AnswerThePublic (Nuvem de Perguntas)</span>
+          <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 text-white uppercase tracking-wider animate-pulse">NOVO</span>
+        </button>
+      </div>
+      <div class="hidden sm:flex items-center gap-2 text-xs text-slate-500">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Google Suggest &amp; Ads Live API
+      </div>
+    </div>
+  </div>
+
   <!-- MAIN VIEWPORT -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
 
-    <!-- KPI CARDS ROW (LIGHT THEME SALES CLARITY STYLE) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <!-- VIEW SECTION: RADAR COMPETITIVO -->
+    <div id="view-radar" class="space-y-6">
+
+      <!-- KPI CARDS ROW (LIGHT THEME SALES CLARITY STYLE) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
       
       <!-- KPI 1: Concorrentes Monitorados -->
       <div class="clarity-card rounded-xl p-5 relative overflow-hidden">
@@ -255,6 +278,151 @@
     <!-- COMPETITORS LIST (EXTERNAL COMPETITORS ONLY) -->
     <div id="competitors-list" class="space-y-5">
       <!-- Dynamically populated via JS -->
+    </div>
+
+    </div>
+    <!-- END OF VIEW SECTION: RADAR COMPETITIVO -->
+
+    <!-- VIEW SECTION: ANSWER THE PUBLIC (SEARCH INTENT CLOUD & RADIAL WHEEL) -->
+    <div id="view-atp" class="hidden space-y-6">
+      
+      <!-- HERO BANNER -->
+      <div class="clarity-card rounded-2xl p-6 bg-gradient-to-r from-sky-900 via-indigo-900 to-slate-900 text-white relative overflow-hidden shadow-lg border border-sky-800/50">
+        <div class="relative z-10 max-w-3xl space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30 text-xs font-semibold backdrop-blur-sm">
+            <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+            <span>Inspirado em AnswerThePublic.com • Google Autocomplete Live Intelligence</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+            Mapa de Perguntas &amp; Intenção do Candidato
+          </h2>
+          <p class="text-sm text-sky-100/90 leading-relaxed">
+            Descubra as dúvidas reais, comparações e termos que médicos formados no exterior estão digitando no Google. Ideal para orientar copys de anúncios de alta conversão no Google Ads, palavras-chave de Search e temas de aulas no YouTube.
+          </p>
+        </div>
+      </div>
+
+      <!-- SEARCH INPUT & QUICK PRESET TAGS -->
+      <div class="clarity-card rounded-xl p-5 space-y-4">
+        
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div class="relative flex-1">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-3"></i>
+            <input type="text" id="atp-search-input" value="revalida inep" onkeydown="if(event.key==='Enter') handleAtpSearch()" placeholder="Digite uma palavra-chave (ex: revalida inep, prova prática inep, mundo revalida, estrategia med)..." class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:bg-white transition-all shadow-inner font-medium">
+          </div>
+          <button onclick="handleAtpSearch()" id="atp-search-btn" class="bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold px-5 py-2.5 rounded-lg transition-all shadow-sm flex items-center justify-center gap-2 shrink-0">
+            <i data-lucide="search" class="w-4 h-4"></i>
+            <span>Mapear Perguntas</span>
+          </button>
+        </div>
+
+        <!-- Presets Row -->
+        <div class="flex items-center gap-2 flex-wrap pt-1">
+          <span class="text-xs font-semibold text-slate-500 flex items-center gap-1">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-500"></i> Atalhos Rápidos:
+          </span>
+          <div id="atp-presets-container" class="flex items-center gap-1.5 flex-wrap">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CONTROLS & METRICS BAR -->
+      <div class="clarity-card rounded-xl p-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 shrink-0">
+            <i data-lucide="pie-chart" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <span id="atp-current-term">revalida inep</span>
+              <span class="badge-sky text-[11px] font-semibold px-2 py-0.5 rounded-md" id="atp-total-queries-badge">48 Perguntas Mapeadas</span>
+            </div>
+            <div class="text-xs text-slate-500" id="atp-cloud-desc">Nuvem Master de Intenção de Busca dos Médicos Formados no Exterior</div>
+          </div>
+        </div>
+
+        <!-- Mode Toggle & Action Buttons -->
+        <div class="flex items-center gap-2 flex-wrap">
+          
+          <!-- View Toggle -->
+          <div class="bg-slate-100 p-1 rounded-lg border border-slate-200 flex items-center space-x-1 text-xs">
+            <button onclick="setAtpViewMode('wheel')" id="atp-btn-wheel" class="px-3 py-1.5 rounded-md font-semibold bg-white text-slate-900 shadow-sm flex items-center gap-1.5 transition-all">
+              <i data-lucide="orbit" class="w-3.5 h-3.5 text-sky-600"></i> Roda Radial (Visual)
+            </button>
+            <button onclick="setAtpViewMode('cards')" id="atp-btn-cards" class="px-3 py-1.5 rounded-md font-medium text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-all">
+              <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-indigo-600"></i> Grade por Categoria
+            </button>
+          </div>
+
+          <!-- Copy All Button -->
+          <button onclick="copyAllAtpQueries()" class="flex items-center gap-1.5 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold px-3 py-2 rounded-lg transition-all border border-slate-200 shadow-sm" title="Copiar lista de perguntas para o clipboard">
+            <i data-lucide="copy" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span>Copiar Todas</span>
+          </button>
+
+          <!-- Export CSV Button -->
+          <button onclick="exportAtpCSV()" class="flex items-center gap-1.5 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold px-3 py-2 rounded-lg transition-all border border-slate-200 shadow-sm" title="Baixar lista em arquivo CSV">
+            <i data-lucide="download" class="w-3.5 h-3.5 text-slate-500"></i>
+            <span>Exportar CSV</span>
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- VIEW 1: THE RADIAL WHEEL VISUALIZER -->
+      <div id="atp-wheel-wrapper" class="clarity-card rounded-2xl p-4 sm:p-6 relative overflow-hidden bg-slate-50 border border-slate-200">
+        
+        <!-- Canvas Floating Controls -->
+        <div class="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-white/90 backdrop-blur-md p-1 rounded-lg border border-slate-200 shadow-sm text-xs">
+          <button onclick="zoomWheel(1.2)" class="w-7 h-7 flex items-center justify-center rounded hover:bg-slate-100 text-slate-700 font-bold" title="Aumentar Zoom">
+            <i data-lucide="zoom-in" class="w-4 h-4"></i>
+          </button>
+          <button onclick="zoomWheel(0.8)" class="w-7 h-7 flex items-center justify-center rounded hover:bg-slate-100 text-slate-700 font-bold" title="Diminuir Zoom">
+            <i data-lucide="zoom-out" class="w-4 h-4"></i>
+          </button>
+          <button onclick="resetWheelZoom()" class="px-2 py-1 flex items-center justify-center rounded hover:bg-slate-100 text-slate-700 text-[11px] font-semibold" title="Resetar Zoom">
+            Reset
+          </button>
+        </div>
+
+        <!-- Legend -->
+        <div class="absolute top-4 left-4 z-20 hidden sm:flex items-center gap-3 bg-white/90 backdrop-blur-md px-3 py-2 rounded-lg border border-slate-200 shadow-sm text-xs">
+          <span class="flex items-center gap-1.5 text-slate-700 font-medium">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#0284c7]"></span> Perguntas
+          </span>
+          <span class="flex items-center gap-1.5 text-slate-700 font-medium">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#059669]"></span> Preposições
+          </span>
+          <span class="flex items-center gap-1.5 text-slate-700 font-medium">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#d97706]"></span> Comparações
+          </span>
+          <span class="flex items-center gap-1.5 text-slate-700 font-medium">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#4f46e5]"></span> Alta Intenção
+          </span>
+        </div>
+
+        <!-- SVG Container -->
+        <div id="atp-svg-viewport" class="w-full overflow-auto flex items-center justify-center min-h-[750px] cursor-grab active:cursor-grabbing custom-scroll">
+          <svg id="atp-radial-svg" class="transition-transform duration-300 origin-center" viewBox="0 0 1200 1200" width="1150" height="1150">
+            <!-- Dynamically populated via JS renderRadialWheel() -->
+          </svg>
+        </div>
+
+        <div class="text-center text-xs text-slate-400 mt-2">
+          Passe o mouse sobre qualquer termo para destacar a ramificação e clique para abrir a pesquisa real no Google.
+        </div>
+
+      </div>
+
+      <!-- VIEW 2: CATEGORIZED BENTO CARDS GRID -->
+      <div id="atp-cards-wrapper" class="hidden grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Dynamically populated via renderCategorizedCards() -->
+      </div>
+
     </div>
 
   </main>
@@ -1273,6 +1441,363 @@
         console.error('Falha ao copiar:', err);
         showToast("Erro ao copiar.");
       });
+    }
+
+    // ==========================================
+    // ANSWER THE PUBLIC VIEW & LOGIC
+    // ==========================================
+    let currentMainView = 'radar';
+    let currentAtpCloud = null;
+    let atpViewMode = 'wheel';
+    let wheelZoom = 1;
+
+    function switchView(viewName) {
+      currentMainView = viewName;
+      const radarSection = document.getElementById('view-radar');
+      const atpSection = document.getElementById('view-atp');
+      const radarBtn = document.getElementById('nav-btn-radar');
+      const atpBtn = document.getElementById('nav-btn-atp');
+
+      if (viewName === 'radar') {
+        radarSection.classList.remove('hidden');
+        atpSection.classList.add('hidden');
+        radarBtn.className = 'nav-tab-btn flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-lg transition-all text-emerald-700 bg-emerald-50 border border-emerald-200 shadow-sm';
+        atpBtn.className = 'nav-tab-btn flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-lg transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100';
+      } else {
+        radarSection.classList.add('hidden');
+        atpSection.classList.remove('hidden');
+        atpBtn.className = 'nav-tab-btn flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-lg transition-all text-sky-800 bg-sky-50 border border-sky-200 shadow-sm';
+        radarBtn.className = 'nav-tab-btn flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-lg transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-100';
+
+        if (!currentAtpCloud) {
+          loadAtpPresets();
+          loadSearchCloud('revalida inep');
+        }
+      }
+      lucide.createIcons();
+    }
+
+    async function loadAtpPresets() {
+      try {
+        const res = await fetch('/api/search-cloud/presets');
+        const presets = await res.json();
+        const container = document.getElementById('atp-presets-container');
+        if (!container) return;
+
+        container.innerHTML = presets.map(p => `
+          <button onclick="loadSearchCloud('${p.term}')" class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-100 hover:bg-sky-50 hover:text-sky-700 hover:border-sky-300 border border-slate-200 text-slate-700 transition-all flex items-center gap-1">
+            <span>${p.label}</span>
+            <span class="text-[9px] px-1 py-0.2 rounded bg-slate-200 text-slate-600 font-normal">${p.badge}</span>
+          </button>
+        `).join('');
+      } catch (e) {
+        console.error("Erro ao carregar presets:", e);
+      }
+    }
+
+    async function handleAtpSearch() {
+      const input = document.getElementById('atp-search-input');
+      const term = input.value.trim();
+      if (!term) return;
+      await loadSearchCloud(term);
+    }
+
+    async function loadSearchCloud(term) {
+      const btn = document.getElementById('atp-search-btn');
+      const input = document.getElementById('atp-search-input');
+      if (input) input.value = term;
+
+      if (btn) {
+        btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i><span>Carregando...</span>`;
+      }
+
+      try {
+        const res = await fetch(`/api/search-cloud?term=${encodeURIComponent(term)}`);
+        const data = await res.json();
+        currentAtpCloud = data;
+
+        document.getElementById('atp-current-term').innerText = data.term;
+        document.getElementById('atp-total-queries-badge').innerText = `${data.total_queries} Perguntas Mapeadas`;
+        document.getElementById('atp-cloud-desc').innerText = data.description || `Mapeamento forense de buscas para ${data.term}`;
+
+        renderRadialWheel(data);
+        renderCategorizedCards(data);
+        lucide.createIcons();
+      } catch (err) {
+        console.error("Erro ao carregar search cloud:", err);
+        showToast("Erro ao carregar nuvem de buscas.");
+      } finally {
+        if (btn) {
+          btn.innerHTML = `<i data-lucide="search" class="w-4 h-4"></i><span>Mapear Perguntas</span>`;
+          lucide.createIcons();
+        }
+      }
+    }
+
+    function setAtpViewMode(mode) {
+      atpViewMode = mode;
+      const wheelWrapper = document.getElementById('atp-wheel-wrapper');
+      const cardsWrapper = document.getElementById('atp-cards-wrapper');
+      const btnWheel = document.getElementById('atp-btn-wheel');
+      const btnCards = document.getElementById('atp-btn-cards');
+
+      if (mode === 'wheel') {
+        wheelWrapper.classList.remove('hidden');
+        cardsWrapper.classList.add('hidden');
+        btnWheel.className = 'px-3 py-1.5 rounded-md font-semibold bg-white text-slate-900 shadow-sm flex items-center gap-1.5 transition-all';
+        btnCards.className = 'px-3 py-1.5 rounded-md font-medium text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-all';
+      } else {
+        wheelWrapper.classList.add('hidden');
+        cardsWrapper.classList.remove('hidden');
+        btnCards.className = 'px-3 py-1.5 rounded-md font-semibold bg-white text-slate-900 shadow-sm flex items-center gap-1.5 transition-all';
+        btnWheel.className = 'px-3 py-1.5 rounded-md font-medium text-slate-600 hover:text-slate-900 flex items-center gap-1.5 transition-all';
+      }
+      lucide.createIcons();
+    }
+
+    function zoomWheel(factor) {
+      wheelZoom = Math.min(Math.max(wheelZoom * factor, 0.5), 2.5);
+      const svg = document.getElementById('atp-radial-svg');
+      if (svg) {
+        svg.style.transform = `scale(${wheelZoom})`;
+      }
+    }
+
+    function resetWheelZoom() {
+      wheelZoom = 1;
+      const svg = document.getElementById('atp-radial-svg');
+      if (svg) {
+        svg.style.transform = `scale(1)`;
+      }
+    }
+
+    function renderRadialWheel(cloud) {
+      const svg = document.getElementById('atp-radial-svg');
+      if (!svg) return;
+
+      const cx = 600;
+      const cy = 600;
+      const rCategory = 200;
+      const rLeaf = 430;
+
+      const categories = [
+        { key: 'perguntas', name: 'PERGUNTAS', color: '#0284c7', bg: '#e0f2fe' },
+        { key: 'preposicoes', name: 'PREPOSIÇÕES', color: '#059669', bg: '#dcfce7' },
+        { key: 'comparacoes', name: 'COMPARAÇÕES', color: '#d97706', bg: '#fef3c7' },
+        { key: 'alta_intencao', name: 'ALTA INTENÇÃO', color: '#4f46e5', bg: '#e0e7ff' }
+      ];
+
+      let totalItems = 0;
+      categories.forEach(cat => {
+        cat.data = cloud.categories[cat.key] || { items: [] };
+        cat.count = Math.max(cat.data.items.length, 1);
+        totalItems += cat.count;
+      });
+
+      let svgHtml = '';
+
+      svgHtml += `
+        <defs>
+          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08"/>
+          </filter>
+        </defs>
+        <circle cx="${cx}" cy="${cy}" r="${rCategory}" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4,4"/>
+        <circle cx="${cx}" cy="${cy}" r="${rLeaf}" fill="none" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4,4"/>
+      `;
+
+      let currentAngle = -Math.PI / 2;
+      const paddingAngle = 0.08;
+
+      categories.forEach(cat => {
+        const sectorAngle = (cat.count / totalItems) * (Math.PI * 2) - paddingAngle;
+        const startAngle = currentAngle + (paddingAngle / 2);
+        const midAngle = startAngle + (sectorAngle / 2);
+
+        const catX = cx + rCategory * Math.cos(midAngle);
+        const catY = cy + rCategory * Math.sin(midAngle);
+
+        svgHtml += `
+          <line x1="${cx}" y1="${cy}" x2="${catX}" y2="${catY}" stroke="${cat.color}" stroke-width="2.5" opacity="0.35"/>
+        `;
+
+        const items = cat.data.items;
+        items.forEach((item, idx) => {
+          const itemAngle = startAngle + (idx + 0.5) * (sectorAngle / items.length);
+          const leafX = cx + rLeaf * Math.cos(itemAngle);
+          const leafY = cy + rLeaf * Math.sin(itemAngle);
+
+          const cp1X = cx + (rCategory + 70) * Math.cos(midAngle);
+          const cp1Y = cy + (rCategory + 70) * Math.sin(midAngle);
+          const cp2X = cx + (rLeaf - 70) * Math.cos(itemAngle);
+          const cp2Y = cy + (rLeaf - 70) * Math.sin(itemAngle);
+
+          const pathId = `path-${cat.key}-${idx}`;
+
+          svgHtml += `
+            <path id="${pathId}" d="M ${catX} ${catY} C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${leafX} ${leafY}" fill="none" stroke="${cat.color}" stroke-width="1.5" opacity="0.45" class="transition-all duration-200"/>
+            <g class="cursor-pointer group" onclick="window.open('https://www.google.com/search?q=${encodeURIComponent(item.query)}', '_blank')" onmouseenter="highlightPath('${pathId}', true)" onmouseleave="highlightPath('${pathId}', false)">
+              <circle cx="${leafX}" cy="${leafY}" r="4.5" fill="${cat.color}" stroke="#ffffff" stroke-width="1.5"/>
+          `;
+
+          let deg = (itemAngle * 180) / Math.PI;
+          let isRightSide = Math.cos(itemAngle) >= 0;
+          let textAnchor = isRightSide ? "start" : "end";
+          let textX = isRightSide ? leafX + 8 : leafX - 8;
+          let textY = leafY + 3.5;
+          let rotation = isRightSide ? deg : deg + 180;
+
+          svgHtml += `
+              <text x="${textX}" y="${textY}" transform="rotate(${rotation}, ${leafX}, ${leafY})" text-anchor="${textAnchor}" font-size="10.5" font-family="Inter, sans-serif" font-weight="500" fill="#334155" class="group-hover:fill-sky-700 group-hover:font-bold transition-all">
+                ${item.query}
+              </text>
+            </g>
+          `;
+        });
+
+        svgHtml += `
+          <g>
+            <circle cx="${catX}" cy="${catY}" r="26" fill="${cat.bg}" stroke="${cat.color}" stroke-width="2.5" filter="url(#shadow)"/>
+            <text x="${catX}" y="${catY + 3.5}" text-anchor="middle" font-size="9" font-family="Inter, sans-serif" font-weight="800" fill="${cat.color}">
+              ${cat.name.slice(0, 4)}
+            </text>
+          </g>
+        `;
+
+        currentAngle += sectorAngle + paddingAngle;
+      });
+
+      svgHtml += `
+        <g filter="url(#shadow)">
+          <circle cx="${cx}" cy="${cy}" r="62" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+          <circle cx="${cx}" cy="${cy}" r="56" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="${cx}" y="${cy - 8}" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" font-weight="800" fill="#0f172a">
+            ${cloud.term.toUpperCase().slice(0, 16)}
+          </text>
+          <text x="${cx}" y="${cy + 12}" text-anchor="middle" font-size="8.5" font-family="Inter, sans-serif" font-weight="600" fill="#059669">
+            MUNDO REVALIDA
+          </text>
+        </g>
+      `;
+
+      svg.innerHTML = svgHtml;
+    }
+
+    function highlightPath(pathId, active) {
+      const path = document.getElementById(pathId);
+      if (path) {
+        if (active) {
+          path.setAttribute('stroke-width', '3.5');
+          path.setAttribute('opacity', '1');
+        } else {
+          path.setAttribute('stroke-width', '1.5');
+          path.setAttribute('opacity', '0.45');
+        }
+      }
+    }
+
+    function renderCategorizedCards(cloud) {
+      const wrapper = document.getElementById('atp-cards-wrapper');
+      if (!wrapper) return;
+
+      const cats = cloud.categories;
+      const order = [
+        { key: 'perguntas', title: 'Perguntas dos Candidatos', color: '#0284c7', icon: 'help-circle', badgeBg: 'bg-sky-50 text-sky-800 border-sky-200' },
+        { key: 'preposicoes', title: 'Preposições & Contextos', color: '#059669', icon: 'git-merge', badgeBg: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+        { key: 'comparacoes', title: 'Comparações & Decisão', color: '#d97706', icon: 'git-pull-request', badgeBg: 'bg-amber-50 text-amber-800 border-amber-200' },
+        { key: 'alta_intencao', title: 'Alta Intenção de Compra / Cursos', color: '#4f46e5', icon: 'shopping-cart', badgeBg: 'bg-indigo-50 text-indigo-800 border-indigo-200' }
+      ];
+
+      wrapper.innerHTML = order.map(c => {
+        const catData = cats[c.key] || { items: [] };
+        const items = catData.items || [];
+
+        return `
+          <div class="clarity-card rounded-xl p-5 space-y-4">
+            
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color: ${c.color}15; color: ${c.color}">
+                  <i data-lucide="${c.icon}" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-900">${c.title}</h4>
+                  <span class="text-xs text-slate-500">${items.length} termos identificados</span>
+                </div>
+              </div>
+              <button onclick="copyCategoryQueries('${c.key}')" class="text-slate-400 hover:text-slate-700 p-1.5 rounded hover:bg-slate-100 transition-colors" title="Copiar perguntas desta categoria">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <div class="space-y-2 max-h-[360px] overflow-y-auto pr-1 custom-scroll">
+              ${items.length === 0 ? '<div class="text-xs text-slate-400 italic py-4 text-center">Nenhum termo catalogado nesta categoria.</div>' : ''}
+              ${items.map(it => `
+                <div class="p-2.5 rounded-lg bg-slate-50 hover:bg-white border border-slate-200/70 hover:border-slate-300 transition-all flex items-center justify-between gap-3 text-xs group">
+                  <div class="flex items-center gap-2 flex-1 min-w-0">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold ${c.badgeBg} border shrink-0">
+                      ${it.modifier}
+                    </span>
+                    <span class="text-slate-800 font-medium truncate group-hover:text-slate-900">
+                      ${it.query}
+                    </span>
+                  </div>
+                  <div class="flex items-center gap-1 shrink-0 opacity-80 group-hover:opacity-100">
+                    <button onclick="copyToClipboard('${it.query.replace(/'/g, "\\'")}', 'Pergunta copiada!')" class="p-1 text-slate-400 hover:text-slate-700 rounded hover:bg-slate-200 transition-colors" title="Copiar pergunta">
+                      <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <a href="https://www.google.com/search?q=${encodeURIComponent(it.query)}" target="_blank" class="p-1 text-slate-400 hover:text-sky-600 rounded hover:bg-slate-200 transition-colors" title="Pesquisar no Google">
+                      <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                    </a>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    function copyAllAtpQueries() {
+      if (!currentAtpCloud || !currentAtpCloud.categories) return;
+      const all = [];
+      Object.values(currentAtpCloud.categories).forEach(cat => {
+        (cat.items || []).forEach(it => all.push(it.query));
+      });
+      if (all.length === 0) {
+        showToast("Nenhuma pergunta para copiar.");
+        return;
+      }
+      copyToClipboard(all.join('\\n'), `${all.length} perguntas copiadas para o clipboard!`);
+    }
+
+    function copyCategoryQueries(catKey) {
+      if (!currentAtpCloud || !currentAtpCloud.categories) return;
+      const cat = currentAtpCloud.categories[catKey];
+      if (!cat || !cat.items) return;
+      const list = cat.items.map(it => it.query);
+      copyToClipboard(list.join('\\n'), `${list.length} perguntas copiadas!`);
+    }
+
+    function exportAtpCSV() {
+      if (!currentAtpCloud || !currentAtpCloud.categories) return;
+      let csv = 'Categoria,Modificador,Pergunta,Intencao\\n';
+      Object.entries(currentAtpCloud.categories).forEach(([key, cat]) => {
+        (cat.items || []).forEach(it => {
+          csv += `"${cat.label}","${it.modifier}","${it.query.replace(/"/g, '""')}","${it.intent || ''}"\\n`;
+        });
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", `answerthepublic_${currentAtpCloud.term.replace(/\\s+/g, '_')}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast("Download do CSV iniciado!");
     }
 
     window.addEventListener('DOMContentLoaded', loadCompetitors);
