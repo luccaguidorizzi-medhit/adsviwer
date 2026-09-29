@@ -401,7 +401,7 @@
         </div>
 
         <!-- Legend -->
-        <div class="absolute top-4 left-4 z-20 hidden sm:flex items-center gap-3 bg-white/90 backdrop-blur-md px-3 py-2 rounded-lg border border-slate-200 shadow-sm text-xs">
+        <div id="atp-wheel-legend" class="absolute top-4 left-4 z-20 hidden sm:flex items-center gap-3 bg-white/90 backdrop-blur-md px-3 py-2 rounded-lg border border-slate-200 shadow-sm text-xs">
           <span class="flex items-center gap-1.5 text-slate-700 font-medium">
             <span class="w-2.5 h-2.5 rounded-full bg-[#0284c7]"></span> Perguntas
           </span>
@@ -417,8 +417,8 @@
         </div>
 
         <!-- SVG Container -->
-        <div id="atp-svg-viewport" class="w-full overflow-auto flex items-center justify-center min-h-[750px] cursor-grab active:cursor-grabbing custom-scroll">
-          <svg id="atp-radial-svg" class="transition-transform duration-300 origin-center" viewBox="0 0 1200 1200" width="1150" height="1150">
+        <div id="atp-svg-viewport" class="w-full overflow-auto flex items-center justify-center min-h-[750px] p-6 cursor-grab active:cursor-grabbing custom-scroll">
+          <svg id="atp-radial-svg" class="transition-transform duration-300 origin-center overflow-visible" viewBox="0 0 1900 1900" width="1250" height="1250" style="overflow: visible; max-width: none;">
             <!-- Dynamically populated via JS renderRadialWheel() -->
           </svg>
         </div>
@@ -1748,7 +1748,7 @@
     }
 
     function zoomWheel(factor) {
-      wheelZoom = Math.min(Math.max(wheelZoom * factor, 0.5), 2.5);
+      wheelZoom = Math.min(Math.max(wheelZoom * factor, 0.35), 2.5);
       const svg = document.getElementById('atp-radial-svg');
       if (svg) {
         svg.style.transform = `scale(${wheelZoom})`;
@@ -1774,10 +1774,10 @@
       const svg = document.getElementById('atp-radial-svg');
       if (!svg) return;
 
-      const cx = 600;
-      const cy = 600;
-      const rCategory = 200;
-      const rLeaf = 430;
+      const cx = 950;
+      const cy = 950;
+      const rCategory = 230;
+      const rLeaf = 470;
 
       const isCompetitorCloud = Boolean(cloud.categories && (cloud.categories.google_ads || cloud.categories.confronto));
       const categories = isCompetitorCloud ? [
@@ -1791,6 +1791,16 @@
         { key: 'comparacoes', name: 'COMPARAÇÕES', color: '#d97706', bg: '#fef3c7', short: 'COMP' },
         { key: 'alta_intencao', name: 'ALTA INTENÇÃO', color: '#4f46e5', bg: '#e0e7ff', short: 'INTEN' }
       ];
+
+      // Update dynamic legend
+      const legend = document.getElementById('atp-wheel-legend');
+      if (legend) {
+        legend.innerHTML = categories.map(c => `
+          <span class="flex items-center gap-1.5 text-slate-700 font-medium">
+            <span class="w-2.5 h-2.5 rounded-full" style="background-color: ${c.color}"></span> ${c.name}
+          </span>
+        `).join('');
+      }
 
       let totalItems = 0;
       categories.forEach(cat => {
@@ -1832,29 +1842,33 @@
           const leafX = cx + rLeaf * Math.cos(itemAngle);
           const leafY = cy + rLeaf * Math.sin(itemAngle);
 
-          const cp1X = cx + (rCategory + 70) * Math.cos(midAngle);
-          const cp1Y = cy + (rCategory + 70) * Math.sin(midAngle);
-          const cp2X = cx + (rLeaf - 70) * Math.cos(itemAngle);
-          const cp2Y = cy + (rLeaf - 70) * Math.sin(itemAngle);
+          const cp1X = cx + (rCategory + 80) * Math.cos(midAngle);
+          const cp1Y = cy + (rCategory + 80) * Math.sin(midAngle);
+          const cp2X = cx + (rLeaf - 80) * Math.cos(itemAngle);
+          const cp2Y = cy + (rLeaf - 80) * Math.sin(itemAngle);
 
           const pathId = `path-${cat.key}-${idx}`;
 
           svgHtml += `
             <path id="${pathId}" d="M ${catX} ${catY} C ${cp1X} ${cp1Y}, ${cp2X} ${cp2Y}, ${leafX} ${leafY}" fill="none" stroke="${cat.color}" stroke-width="1.5" opacity="0.45" class="transition-all duration-200"/>
             <g class="cursor-pointer group" onclick="handleWheelNodeClick('${cat.key}', ${idx})" onmouseenter="highlightPath('${pathId}', true)" onmouseleave="highlightPath('${pathId}', false)">
-              <circle cx="${leafX}" cy="${leafY}" r="4.5" fill="${cat.color}" stroke="#ffffff" stroke-width="1.5"/>
+              <title>${item.query.replace(/"/g, '&quot;')}</title>
+              <circle cx="${leafX}" cy="${leafY}" r="5" fill="${cat.color}" stroke="#ffffff" stroke-width="1.5"/>
           `;
 
           let deg = (itemAngle * 180) / Math.PI;
           let isRightSide = Math.cos(itemAngle) >= 0;
           let textAnchor = isRightSide ? "start" : "end";
-          let textX = isRightSide ? leafX + 8 : leafX - 8;
-          let textY = leafY + 3.5;
+          let textX = isRightSide ? leafX + 10 : leafX - 10;
+          let textY = leafY + 4;
           let rotation = isRightSide ? deg : deg + 180;
 
+          const maxQueryLen = 54;
+          const displayQuery = item.query.length > maxQueryLen ? item.query.slice(0, maxQueryLen - 1) + '…' : item.query;
+
           svgHtml += `
-              <text x="${textX}" y="${textY}" transform="rotate(${rotation}, ${leafX}, ${leafY})" text-anchor="${textAnchor}" font-size="10.5" font-family="Inter, sans-serif" font-weight="500" fill="#334155" class="group-hover:fill-sky-700 group-hover:font-bold transition-all">
-                ${item.query}
+              <text x="${textX}" y="${textY}" transform="rotate(${rotation}, ${leafX}, ${leafY})" text-anchor="${textAnchor}" font-size="12" font-family="Inter, sans-serif" font-weight="500" fill="#334155" class="group-hover:fill-sky-700 group-hover:font-bold transition-all">
+                ${displayQuery}
               </text>
             </g>
           `;
@@ -1862,7 +1876,7 @@
 
         svgHtml += `
           <g>
-            <circle cx="${catX}" cy="${catY}" r="26" fill="${cat.bg}" stroke="${cat.color}" stroke-width="2.5" filter="url(#shadow)"/>
+            <circle cx="${catX}" cy="${catY}" r="28" fill="${cat.bg}" stroke="${cat.color}" stroke-width="2.5" filter="url(#shadow)"/>
             <text x="${catX}" y="${catY + 3.5}" text-anchor="middle" font-size="8.5" font-family="Inter, sans-serif" font-weight="800" fill="${cat.color}">
               ${cat.short || cat.name.slice(0, 4)}
             </text>
@@ -1877,12 +1891,12 @@
 
       svgHtml += `
         <g filter="url(#shadow)">
-          <circle cx="${cx}" cy="${cy}" r="64" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
-          <circle cx="${cx}" cy="${cy}" r="58" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
-          <text x="${cx}" y="${cy - 6}" text-anchor="middle" font-size="11" font-family="Inter, sans-serif" font-weight="800" fill="#0f172a">
+          <circle cx="${cx}" cy="${cy}" r="75" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+          <circle cx="${cx}" cy="${cy}" r="67" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="${cx}" y="${cy - 7}" text-anchor="middle" font-size="12" font-family="Inter, sans-serif" font-weight="800" fill="#0f172a">
             ${centerTitle}
           </text>
-          <text x="${cx}" y="${cy + 13}" text-anchor="middle" font-size="8" font-family="Inter, sans-serif" font-weight="700" fill="${isCompetitorCloud ? '#0284c7' : '#059669'}">
+          <text x="${cx}" y="${cy + 15}" text-anchor="middle" font-size="8.5" font-family="Inter, sans-serif" font-weight="700" fill="${isCompetitorCloud ? '#0284c7' : '#059669'}">
             ${centerSubtitle}
           </text>
         </g>
