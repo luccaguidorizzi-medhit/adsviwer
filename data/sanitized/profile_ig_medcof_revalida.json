@@ -1,0 +1,37 @@
+{
+  "competitor_id": "medcof_revalida",
+  "platform": "instagram",
+  "username": "medcof.revalida",
+  "full_name": "MedCof Revalida",
+  "bio_text": "Correção de provas anteriores, debate de questões, lives e sorteios",
+  "external_url": "https://revalida.grupomedcof.com.br",
+  "followers_count": 21800,
+  "posts_count": 6,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "debate sobre uma questão da prova de 2022"
+    },
+    {
+      "type": "reels",
+      "topic": "sorteio"
+    },
+    {
+      "type": "reels",
+      "topic": "meme sobre os calouros"
+    },
+    {
+      "type": "static",
+      "topic": "sobre as insrições da primeira etapa"
+    },
+    {
+      "type": "static",
+      "topic": "aula ao vivo"
+    },
+    {
+      "type": "static",
+      "topic": "sorteio"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

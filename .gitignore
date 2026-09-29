@@ -1,0 +1,12 @@
+.env
+.venv*
+__pycache__/
+*.pyc
+data/reports/*.pdf
+data/cache/
+temp_*
+.vercel
+.pytest_cache
+.agents/
+data/test_transparency.py
+data/user_prompt_goal.txt

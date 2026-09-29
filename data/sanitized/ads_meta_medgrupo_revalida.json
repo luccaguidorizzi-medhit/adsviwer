@@ -1,0 +1,26 @@
+{
+  "competitor_id": "medgrupo_revalida",
+  "competitor_name": "Medgrupo Revalida",
+  "platform": "meta",
+  "total_ads_found": 1,
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+  "ads": [
+    {
+      "competitor_id": "medgrupo_revalida",
+      "platform": "meta",
+      "ad_id": "ad_medgrupo_revalida_01",
+      "headline": "mesmos posts do feed do instagram",
+      "body_text": "Campanha ativa de Meta Ads para Medgrupo Revalida: mesmos posts do feed do instagram",
+      "call_to_action": "Saiba Mais",
+      "landing_page_url": "https://medgrupo.com.br",
+      "media_url": null,
+      "start_date": "2026-04-01T00:00:00Z",
+      "is_active": true,
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "competitor_name": "Medgrupo Revalida",
+      "hook_category": "outro",
+      "creative_format": "estatico",
+      "spend_tier": "Orgânico / Impulsionamento Simples"
+    }
+  ]
+}

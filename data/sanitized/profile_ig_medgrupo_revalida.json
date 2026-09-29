@@ -1,0 +1,37 @@
+{
+  "competitor_id": "medgrupo_revalida",
+  "platform": "instagram",
+  "username": "medgruporevalida",
+  "full_name": "Medgrupo Revalida",
+  "bio_text": "CPMED Revalida, 1ª e 2ª fase, autoridade histórica em provas médicas",
+  "external_url": "https://medgrupo.com.br",
+  "followers_count": 17300,
+  "posts_count": 6,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "Meme que gera identificação"
+    },
+    {
+      "type": "reels",
+      "topic": "Emocionante sobre 2026 ser um ano para fazer a prova"
+    },
+    {
+      "type": "reels",
+      "topic": "Explicando sobre a mentoria"
+    },
+    {
+      "type": "static",
+      "topic": "prepare-se para a prova"
+    },
+    {
+      "type": "static",
+      "topic": "Explicando sobre o Revalida"
+    },
+    {
+      "type": "static",
+      "topic": "lista de aprovado do curso"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

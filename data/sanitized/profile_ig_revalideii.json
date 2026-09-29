@@ -1,0 +1,37 @@
+{
+  "competitor_id": "revalideii",
+  "platform": "instagram",
+  "username": "revalideii",
+  "full_name": "Revalideii (Escola da Prática)",
+  "bio_text": "Cartões de estudo físicos, aplicativo Simula Revalida, turmas presenciais",
+  "external_url": "https://revalideii.com.br",
+  "followers_count": 18100,
+  "posts_count": 6,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "questões da prova"
+    },
+    {
+      "type": "reels",
+      "topic": "Chamada para turma presencial"
+    },
+    {
+      "type": "reels",
+      "topic": "sobre o edital"
+    },
+    {
+      "type": "static",
+      "topic": "Curso presencial"
+    },
+    {
+      "type": "static",
+      "topic": "mentorias"
+    },
+    {
+      "type": "static",
+      "topic": "você não precisa enfrentar sozinho"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

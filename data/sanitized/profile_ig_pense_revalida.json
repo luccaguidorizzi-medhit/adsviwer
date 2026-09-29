@@ -1,0 +1,37 @@
+{
+  "competitor_id": "pense_revalida",
+  "platform": "instagram",
+  "username": "penserevalida",
+  "full_name": "Pense Revalida",
+  "bio_text": "Checklists para 2ª fase, aulas ao vivo de resolução de estações práticas",
+  "external_url": "https://penserevalida.com.br",
+  "followers_count": 19300,
+  "posts_count": 6,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "Aula ao vivo"
+    },
+    {
+      "type": "reels",
+      "topic": "Questão da prova"
+    },
+    {
+      "type": "reels",
+      "topic": "motivacional"
+    },
+    {
+      "type": "static",
+      "topic": "nota de corte"
+    },
+    {
+      "type": "static",
+      "topic": "questão da prova"
+    },
+    {
+      "type": "static",
+      "topic": "meme de identificação"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

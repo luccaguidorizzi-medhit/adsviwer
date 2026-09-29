@@ -1,0 +1,60 @@
+{
+  "competitor_id": "bastidores_revalida",
+  "competitor_name": "Bastidores do Revalida (Dr. Adelicio Galvão)",
+  "platform": "meta",
+  "total_ads_found": 3,
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+  "ads": [
+    {
+      "competitor_id": "bastidores_revalida",
+      "platform": "meta",
+      "ad_id": "ad_bastidores_revalida_01",
+      "headline": "inscrições abertas",
+      "body_text": "Campanha ativa de Meta Ads para Bastidores do Revalida (Dr. Adelicio Galvão): inscrições abertas",
+      "call_to_action": "Saiba Mais",
+      "landing_page_url": "https://bastidoresdorevalida.com.br",
+      "media_url": null,
+      "start_date": "2026-04-01T00:00:00Z",
+      "is_active": true,
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "competitor_name": "Bastidores do Revalida (Dr. Adelicio Galvão)",
+      "hook_category": "outro",
+      "creative_format": "estatico",
+      "spend_tier": "Mid Spender"
+    },
+    {
+      "competitor_id": "bastidores_revalida",
+      "platform": "meta",
+      "ad_id": "ad_bastidores_revalida_02",
+      "headline": "hora de se preparar",
+      "body_text": "Campanha ativa de Meta Ads para Bastidores do Revalida (Dr. Adelicio Galvão): hora de se preparar",
+      "call_to_action": "Saiba Mais",
+      "landing_page_url": "https://bastidoresdorevalida.com.br",
+      "media_url": null,
+      "start_date": "2026-04-01T00:00:00Z",
+      "is_active": true,
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "competitor_name": "Bastidores do Revalida (Dr. Adelicio Galvão)",
+      "hook_category": "outro",
+      "creative_format": "estatico",
+      "spend_tier": "Mid Spender"
+    },
+    {
+      "competitor_id": "bastidores_revalida",
+      "platform": "meta",
+      "ad_id": "ad_bastidores_revalida_03",
+      "headline": "desafios de quem vai fazer a primeira prova",
+      "body_text": "Campanha ativa de Meta Ads para Bastidores do Revalida (Dr. Adelicio Galvão): desafios de quem vai fazer a primeira prova",
+      "call_to_action": "Saiba Mais",
+      "landing_page_url": "https://bastidoresdorevalida.com.br",
+      "media_url": null,
+      "start_date": "2026-04-01T00:00:00Z",
+      "is_active": true,
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "competitor_name": "Bastidores do Revalida (Dr. Adelicio Galvão)",
+      "hook_category": "medo_clareza",
+      "creative_format": "estatico",
+      "spend_tier": "Mid Spender"
+    }
+  ]
+}

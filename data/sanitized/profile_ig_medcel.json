@@ -1,0 +1,33 @@
+{
+  "competitor_id": "medcel",
+  "platform": "instagram",
+  "username": "medcel",
+  "full_name": "Medcel",
+  "bio_text": "Plataforma de estudos, cursos por R$ 0,00 (degustação/isca), organização de rotina",
+  "external_url": "https://www.medcel.com.br",
+  "followers_count": 125000,
+  "posts_count": 5,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "Falando sobre como organizar o dia e estuda"
+    },
+    {
+      "type": "reels",
+      "topic": "Sobre como a plataforma Medcil"
+    },
+    {
+      "type": "reels",
+      "topic": "Assunto abordado na prova"
+    },
+    {
+      "type": "static",
+      "topic": "Meme que gera identificação"
+    },
+    {
+      "type": "static",
+      "topic": "“Erros que você comete”"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

@@ -1,0 +1,43 @@
+{
+  "competitor_id": "medcof_revalida",
+  "competitor_name": "MedCof Revalida",
+  "platform": "meta",
+  "total_ads_found": 2,
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+  "ads": [
+    {
+      "competitor_id": "medcof_revalida",
+      "platform": "meta",
+      "ad_id": "ad_medcof_revalida_01",
+      "headline": "“quer estudar do jeito certo?”",
+      "body_text": "Campanha ativa de Meta Ads para MedCof Revalida: “quer estudar do jeito certo?”",
+      "call_to_action": "Saiba Mais",
+      "landing_page_url": "https://revalida.grupomedcof.com.br",
+      "media_url": null,
+      "start_date": "2026-04-01T00:00:00Z",
+      "is_active": true,
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "competitor_name": "MedCof Revalida",
+      "hook_category": "desmistificacao_banca",
+      "creative_format": "estatico",
+      "spend_tier": "Mid Spender"
+    },
+    {
+      "competitor_id": "medcof_revalida",
+      "platform": "meta",
+      "ad_id": "ad_medcof_revalida_02",
+      "headline": "depoimentos",
+      "body_text": "Campanha ativa de Meta Ads para MedCof Revalida: depoimentos",
+      "call_to_action": "Saiba Mais",
+      "landing_page_url": "https://revalida.grupomedcof.com.br",
+      "media_url": null,
+      "start_date": "2026-04-01T00:00:00Z",
+      "is_active": true,
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "competitor_name": "MedCof Revalida",
+      "hook_category": "prova_social_depoimento",
+      "creative_format": "estatico",
+      "spend_tier": "Mid Spender"
+    }
+  ]
+}

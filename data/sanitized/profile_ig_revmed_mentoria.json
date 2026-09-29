@@ -1,0 +1,33 @@
+{
+  "competitor_id": "revmed_mentoria",
+  "platform": "instagram",
+  "username": "revmedmentoria",
+  "full_name": "Revmed Mentoria",
+  "bio_text": "Cursos presenciais em Foz do Iguaçu (fronteira), simulação de estações",
+  "external_url": "https://revmed.com.br",
+  "followers_count": 14900,
+  "posts_count": 5,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "corte da aula presencial"
+    },
+    {
+      "type": "reels",
+      "topic": "depoimento"
+    },
+    {
+      "type": "reels",
+      "topic": "chamada para o curso presencial em foz do iguaçu"
+    },
+    {
+      "type": "static",
+      "topic": "Curso presencial"
+    },
+    {
+      "type": "static",
+      "topic": "Live"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

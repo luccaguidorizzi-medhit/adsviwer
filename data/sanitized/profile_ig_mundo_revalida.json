@@ -1,0 +1,37 @@
+{
+  "competitor_id": "mundo_revalida",
+  "platform": "instagram",
+  "username": "mundorevalida",
+  "full_name": "Mundo Revalida (NÓS)",
+  "bio_text": "",
+  "external_url": "https://mundorevalida.com.br",
+  "followers_count": 65200,
+  "posts_count": 6,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "Questões de Dengue no Revalida INEP"
+    },
+    {
+      "type": "reels",
+      "topic": "Questões de Preventiva do Revalida: O SUS!"
+    },
+    {
+      "type": "reels",
+      "topic": "Como fazer a prova no laço?"
+    },
+    {
+      "type": "static",
+      "topic": "Respondendo uma questão de ginecologia e obstetrícia"
+    },
+    {
+      "type": "static",
+      "topic": "Obstrução arterial"
+    },
+    {
+      "type": "static",
+      "topic": "Prevenção Quaternária"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

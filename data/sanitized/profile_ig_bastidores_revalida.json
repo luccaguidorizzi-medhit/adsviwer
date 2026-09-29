@@ -1,0 +1,37 @@
+{
+  "competitor_id": "bastidores_revalida",
+  "platform": "instagram",
+  "username": "bastidoresdorevalida",
+  "full_name": "Bastidores do Revalida (Dr. Adelicio Galvão)",
+  "bio_text": "Simulado gratuito, desmistificação da prova, lives de questões, mentorias 1ª e 2ª fase",
+  "external_url": "https://bastidoresdorevalida.com.br",
+  "followers_count": 31800,
+  "posts_count": 6,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "simulado gratuito"
+    },
+    {
+      "type": "reels",
+      "topic": "desconto de aniversário"
+    },
+    {
+      "type": "reels",
+      "topic": "Live sobre questões da prova"
+    },
+    {
+      "type": "static",
+      "topic": "parabéns para o SEO"
+    },
+    {
+      "type": "static",
+      "topic": "nota de corte"
+    },
+    {
+      "type": "static",
+      "topic": "maiores mentiras sobre revalida"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

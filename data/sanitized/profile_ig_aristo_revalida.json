@@ -1,0 +1,37 @@
+{
+  "competitor_id": "aristo_revalida",
+  "platform": "instagram",
+  "username": "aristorevalida",
+  "full_name": "Aristo Revalida",
+  "bio_text": "Cronograma com IA, repetição espaçada, sem tráfego pago ativo",
+  "external_url": "https://aristo.com.br",
+  "followers_count": 9700,
+  "posts_count": 6,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "sobre a primeira etapa do revalida"
+    },
+    {
+      "type": "reels",
+      "topic": "depoimento de aluno"
+    },
+    {
+      "type": "reels",
+      "topic": "sobre questões iguais do curso e da prova"
+    },
+    {
+      "type": "static",
+      "topic": "edital da segunda etapa"
+    },
+    {
+      "type": "static",
+      "topic": "questão da prova"
+    },
+    {
+      "type": "static",
+      "topic": "faltam poucos meses para a primeira etapa"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

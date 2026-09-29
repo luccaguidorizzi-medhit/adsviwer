@@ -1,0 +1,45 @@
+{
+  "project_name": "competitor-monitor",
+  "author": "Lagana Flow",
+  "security_policy": {
+    "quarantine_directory": "data/raw",
+    "sanitized_directory": "data/sanitized",
+    "allowed_file_extensions_raw": [".json", ".html", ".txt"],
+    "max_raw_payload_bytes": 10485760,
+    "prevent_indirect_prompt_injection": true,
+    "blacklisted_prompt_injection_patterns": [
+      "(?i)ignore\\s+(all\\s+)?(previous|prior)\\s+instructions",
+      "(?i)system\\s+prompt",
+      "(?i)you\\s+are\\s+now",
+      "(?i)jailbreak",
+      "(?i)ignore\\s+(todas\\s+as\\s+)?instruções(\\s+anteriores)?",
+      "(?i)prompt\\s+do\\s+sistema",
+      "(?i)você\\s+agora\\s+é",
+      "(?i)<\\|im_start\\|>",
+      "(?i)<\\|im_end\\|>",
+      "(?i)```system",
+      "(?i)<script[\\s\\S]*?>[\\s\\S]*?<\\/script>",
+      "(?i)javascript:",
+      "(?i)onload\\s*=",
+      "(?i)onerror\\s*="
+    ],
+    "strip_dangerous_html_tags": [
+      "script",
+      "style",
+      "iframe",
+      "object",
+      "embed",
+      "applet",
+      "link",
+      "meta"
+    ],
+    "allowed_domains": [
+      "www.facebook.com",
+      "web.facebook.com",
+      "facebook.com",
+      "www.instagram.com",
+      "instagram.com",
+      "adstransparency.google.com"
+    ]
+  }
+}

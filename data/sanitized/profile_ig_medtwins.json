@@ -1,0 +1,29 @@
+{
+  "competitor_id": "medtwins",
+  "platform": "instagram",
+  "username": "medtwinsrevalida",
+  "full_name": "Medtwins Revalida",
+  "bio_text": "Intensivão M60, grupos WhatsApp, mentorias, inteligência emocional",
+  "external_url": "https://medtwins.com.br",
+  "followers_count": 32200,
+  "posts_count": 4,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "Falando sobre um tema da prova"
+    },
+    {
+      "type": "static",
+      "topic": "Gabarito"
+    },
+    {
+      "type": "static",
+      "topic": "sobre a nota de corte"
+    },
+    {
+      "type": "static",
+      "topic": "Chamada para aula ao vivo"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

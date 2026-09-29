@@ -1,0 +1,298 @@
+{
+  "version": "2.1.0",
+  "author": "Lagana Flow",
+  "last_updated": "2026-09-21",
+  "strict_filtering": {
+    "target_product": "REVALIDA_MEDICA_INEP",
+    "required_keywords": ["revalida", "revalidação", "diploma exterior", "inep", "médico no brasil", "prova prática", "habilidades clínicas"],
+    "excluded_keywords": ["vestibular", "enem", "r1 residência", "r3 cirurgia", "psu-mg", "sus-sp", "enare residência"]
+  },
+  "our_brand": {
+    "id": "mundo_revalida",
+    "name": "Mundo Revalida (NÓS)",
+    "status": "baseline_reference",
+    "website_url": "https://mundorevalida.com.br",
+    "instagram": {
+      "username": "mundorevalida",
+      "followers": "65.2k",
+      "profile_url": "https://www.instagram.com/mundorevalida/"
+    },
+    "youtube": "https://www.youtube.com/@mundorevalida",
+    "meta_ads": {
+      "search_keywords": ["Mundo Revalida", "Juan Pablo Murillo"],
+      "pages_to_monitor": ["Mundo Revalida"]
+    }
+  },
+  "competitors": [
+    {
+      "id": "hardwork_revalida",
+      "name": "Hardwork Revalida",
+      "tier": "Tier 1 - Grande Concorrente",
+      "status": "active",
+      "website_url": "https://home.hardworkmedicina.com.br",
+      "instagram": {
+        "username": "hardwork.revalida",
+        "secondary_username": "hardworkmedicina",
+        "followers": "43.1k"
+      },
+      "youtube": "https://www.youtube.com/@HardworkMedicina",
+      "meta_ads": {
+        "search_keywords": ["Hardwork Revalida", "Hardwork Medicina Revalida"],
+        "pages_to_monitor": ["Hardwork Revalida", "Hardwork Medicina"]
+      },
+      "focus": "Método focado em questões, provas 2026/2027, caixas de perguntas"
+    },
+    {
+      "id": "estrategia_med",
+      "name": "Estratégia MED",
+      "tier": "Tier 1 - Líder Geral",
+      "status": "active",
+      "website_url": "https://med.estrategia.com",
+      "instagram": {
+        "username": "estrategiamed",
+        "followers": "280k"
+      },
+      "youtube": "https://www.youtube.com/@EstrategiaMed",
+      "meta_ads": {
+        "search_keywords": ["Estratégia MED Revalida", "Revalida Exclusive"],
+        "pages_to_monitor": ["Estratégia MED"]
+      },
+      "focus": "Revalida Exclusive, aulas grátis, gancho financeiro (R$ 12k+)"
+    },
+    {
+      "id": "medtwins",
+      "name": "Medtwins Revalida",
+      "tier": "Tier 2 - Especialista",
+      "status": "active",
+      "website_url": "https://medtwins.com.br",
+      "instagram": {
+        "username": "medtwinsrevalida",
+        "followers": "32.2k"
+      },
+      "youtube": "https://www.youtube.com/@medtwinsrevalida",
+      "meta_ads": {
+        "search_keywords": ["Medtwins Revalida", "Intensivão M60"],
+        "pages_to_monitor": ["Medtwins Revalida", "Medtwins"]
+      },
+      "focus": "Intensivão M60, grupos WhatsApp, inteligência emocional"
+    },
+    {
+      "id": "medcel",
+      "name": "Medcel (Afya)",
+      "tier": "Tier 1 - Corporativo",
+      "status": "active",
+      "website_url": "https://www.medcel.com.br",
+      "instagram": {
+        "username": "medcel",
+        "followers": "125k"
+      },
+      "youtube": "https://www.youtube.com/@medcel",
+      "meta_ads": {
+        "search_keywords": ["Medcel Revalida"],
+        "pages_to_monitor": ["Medcel"]
+      },
+      "focus": "Iscas de cursos por R$ 0,00, telemarketing ativo"
+    },
+    {
+      "id": "medgrupo_revalida",
+      "name": "Medgrupo Revalida",
+      "tier": "Tier 1 - Tradicional",
+      "status": "active",
+      "website_url": "https://medgrupo.com.br",
+      "instagram": {
+        "username": "medgruporevalida",
+        "followers": "17.3k"
+      },
+      "youtube": "https://www.youtube.com/@medgrupo",
+      "meta_ads": {
+        "search_keywords": ["CPMED Revalida", "Medgrupo Revalida"],
+        "pages_to_monitor": ["MEDGRUPO", "Medgrupo Revalida"]
+      },
+      "focus": "CPMED Revalida (1ª e 2ª fase)"
+    },
+    {
+      "id": "medcof_revalida",
+      "name": "MedCof Revalida",
+      "tier": "Tier 2 - Em Alta",
+      "status": "active",
+      "website_url": "https://revalida.grupomedcof.com.br",
+      "instagram": {
+        "username": "medcof.revalida",
+        "followers": "21.8k"
+      },
+      "youtube": "https://www.youtube.com/@grupomedcof",
+      "meta_ads": {
+        "search_keywords": ["MedCof Revalida", "Revalida MedCof"],
+        "pages_to_monitor": ["Grupo MedCof", "MedCof Revalida"]
+      },
+      "focus": "Correção de provas, análise de banca"
+    },
+    {
+      "id": "bastidores_revalida",
+      "name": "Bastidores do Revalida",
+      "tier": "Tier 2 - Niche Specialist",
+      "status": "active",
+      "website_url": "https://bastidoresdorevalida.com.br",
+      "instagram": {
+        "username": "bastidoresdorevalida",
+        "followers": "31.8k"
+      },
+      "youtube": "https://www.youtube.com/@bastidoresdorevalida",
+      "meta_ads": {
+        "search_keywords": ["Bastidores do Revalida", "Dr. Adelicio Galvão"],
+        "pages_to_monitor": ["Bastidores do Revalida", "Dr. Adelicio Galvão"]
+      },
+      "focus": "Simulado gratuito, mentorias 1ª e 2ª fase"
+    },
+    {
+      "id": "aristo_revalida",
+      "name": "Aristo Revalida",
+      "tier": "Tier 3 - Metodologia IA",
+      "status": "active",
+      "website_url": "https://aristo.com.br",
+      "instagram": {
+        "username": "aristorevalida",
+        "followers": "9.7k"
+      },
+      "youtube": "https://www.youtube.com/@AristoRevalida",
+      "meta_ads": {
+        "search_keywords": ["Aristo Revalida", "Aristo Medicina Revalida"],
+        "pages_to_monitor": ["Aristo", "Aristo Revalida"]
+      },
+      "focus": "Cronograma adaptativo, repetição espaçada"
+    },
+    {
+      "id": "medway_revalida",
+      "name": "Medway Revalida",
+      "tier": "Tier 2 - Player Emergente",
+      "status": "active",
+      "website_url": "https://medway.com.br",
+      "instagram": {
+        "username": "medway.revalida",
+        "followers": "15.0k"
+      },
+      "youtube": "https://www.youtube.com/@medway",
+      "meta_ads": {
+        "search_keywords": ["Medway Revalida", "Pra Cima Revalida"],
+        "pages_to_monitor": ["Medway", "Medway Revalida"]
+      },
+      "focus": "Ultrabanco Revalida, eventos 'Pra Cima Revalida'"
+    },
+    {
+      "id": "sanar_revalida",
+      "name": "Sanar Revalida",
+      "tier": "Tier 2 - Ecossistema Sanar",
+      "status": "active",
+      "website_url": "https://sanarmed.com",
+      "instagram": {
+        "username": "sanarmed",
+        "followers": "350k"
+      },
+      "youtube": "https://www.youtube.com/@sanarmed",
+      "meta_ads": {
+        "search_keywords": ["Sanar Revalida", "SanarMed Revalida"],
+        "pages_to_monitor": ["Sanar", "SanarMed"]
+      },
+      "focus": "Trilhas SanarFlix Revalida, apostilas"
+    },
+    {
+      "id": "verbomed_revalida",
+      "name": "VerboMed Revalida",
+      "tier": "Tier 3 - Especialista",
+      "status": "active",
+      "website_url": "https://verbomed.com.br",
+      "instagram": {
+        "username": "verbomed",
+        "followers": "12.0k"
+      },
+      "youtube": "https://www.youtube.com/@verbomed",
+      "meta_ads": {
+        "search_keywords": ["VerboMed Revalida"],
+        "pages_to_monitor": ["VerboMed", "Grupo Verbo"]
+      },
+      "focus": "Metodologia de questões reversas para Revalida"
+    },
+    {
+      "id": "pense_revalida",
+      "name": "Pense Revalida",
+      "tier": "Tier 3 - Prova Prática",
+      "status": "active",
+      "website_url": "https://penserevalida.com.br",
+      "instagram": {
+        "username": "penserevalida",
+        "followers": "19.3k"
+      },
+      "youtube": "https://www.youtube.com/@penserevalida",
+      "meta_ads": {
+        "search_keywords": ["Pense Revalida"],
+        "pages_to_monitor": ["Pense Revalida"]
+      },
+      "focus": "Checklists para 2ª fase prática"
+    },
+    {
+      "id": "revalideii",
+      "name": "Revalideii",
+      "tier": "Tier 3 - Materiais Físicos",
+      "status": "active",
+      "website_url": "https://revalideii.com.br",
+      "instagram": {
+        "username": "revalideii",
+        "followers": "18.1k"
+      },
+      "youtube": "https://www.youtube.com/@revalideii6331",
+      "meta_ads": {
+        "search_keywords": ["Revalideii", "Simula Revalida"],
+        "pages_to_monitor": ["Revalideii", "Escola da Prática"]
+      },
+      "focus": "Cartões de estudo físicos, app Simula Revalida"
+    },
+    {
+      "id": "revalida360",
+      "name": "Revalida 360",
+      "tier": "Tier 4 - Fronteira Foz",
+      "status": "active",
+      "website_url": "https://revalida360.com.br",
+      "instagram": {
+        "username": "revalida360",
+        "followers": "4.4k"
+      },
+      "meta_ads": {
+        "search_keywords": ["Revalida 360", "Imersão Foz do Iguaçu"],
+        "pages_to_monitor": ["Revalida 360"]
+      },
+      "focus": "Imersão presencial de 3 dias em Foz do Iguaçu"
+    },
+    {
+      "id": "revmed_mentoria",
+      "name": "Revmed Mentoria",
+      "tier": "Tier 4 - Presencial Foz",
+      "status": "active",
+      "website_url": "https://revmed.com.br",
+      "instagram": {
+        "username": "revmedmentoria",
+        "followers": "14.9k"
+      },
+      "meta_ads": {
+        "search_keywords": ["Revmed Mentoria"],
+        "pages_to_monitor": ["Revmed Mentoria"]
+      },
+      "focus": "Cursos presenciais em Foz do Iguaçu"
+    },
+    {
+      "id": "alphamed_revalida",
+      "name": "AlphaMed Revalida",
+      "tier": "Tier 4 - Habilidades Clínicas",
+      "status": "active",
+      "website_url": "https://alphamedrevalida.com.br",
+      "instagram": {
+        "username": "alphamedrevalida",
+        "followers": "9.7k"
+      },
+      "meta_ads": {
+        "search_keywords": ["AlphaMed Revalida"],
+        "pages_to_monitor": ["AlphaMed Revalida"]
+      },
+      "focus": "Checklists clínicos, estações práticas presenciais"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+services:
+  competitor-extractor:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: competitor-extractor
+    restart: unless-stopped
+    volumes:
+      - ../data/raw:/app/data/raw
+      - ../data/sanitized:/app/data/sanitized
+      - ../config:/app/config:ro
+    environment:
+      - ISOLATED_MODE=true
+    command: ["--run-all"]
+
+  # Optional service for visual and text change detection
+  changedetection:
+    image: lscr.io/linuxserver/changedetection.io:latest
+    container_name: changedetection-engine
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ../data/changedetection-data:/datastore
+    ports:
+      - "5000:5000"
+    restart: unless-stopped

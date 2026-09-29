@@ -1,0 +1,33 @@
+{
+  "competitor_id": "revalida360",
+  "platform": "instagram",
+  "username": "revalida360",
+  "full_name": "Revalida 360",
+  "bio_text": "Imersão presencial intensiva de 3 dias para a prova prática em Foz do Iguaçu",
+  "external_url": "https://revalida360.com.br",
+  "followers_count": 4400,
+  "posts_count": 5,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "corte da aula presencial"
+    },
+    {
+      "type": "reels",
+      "topic": "depoimento"
+    },
+    {
+      "type": "reels",
+      "topic": "chamada para o curso presencial em foz do iguaçu"
+    },
+    {
+      "type": "static",
+      "topic": "Curso presencial"
+    },
+    {
+      "type": "static",
+      "topic": "Live"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

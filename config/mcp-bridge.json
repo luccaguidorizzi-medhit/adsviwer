@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "author": "Lagana Flow",
+  "connected_mcps": {
+    "database": "supabase-thiago",
+    "ai_engine": "gemini-api",
+    "exports": "google-workspace-general",
+    "version_control": "github"
+  },
+  "shared_scratch_projects": [
+    "sales-clarity",
+    "migracao-landing-pages",
+    "workshop-dr-fillipe"
+  ],
+  "export_defaults": {
+    "auto_sync_supabase": false,
+    "notify_on_new_ad": true,
+    "notify_on_landing_page_change": true
+  }
+}

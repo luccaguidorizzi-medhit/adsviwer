@@ -1,0 +1,43 @@
+{
+  "competitor_id": "hardwork_revalida",
+  "competitor_name": "Hardwork Revalida / Hardwork Medicina",
+  "platform": "meta",
+  "total_ads_found": 2,
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+  "ads": [
+    {
+      "competitor_id": "hardwork_revalida",
+      "platform": "meta",
+      "ad_id": "ad_hardwork_revalida_01",
+      "headline": "vai fazer a revalida 2026?",
+      "body_text": "Campanha ativa de Meta Ads para Hardwork Revalida / Hardwork Medicina: Estático: vai fazer a revalida 2026?",
+      "call_to_action": "Saiba Mais",
+      "landing_page_url": "https://home.hardworkmedicina.com.br",
+      "media_url": null,
+      "start_date": "2026-04-01T00:00:00Z",
+      "is_active": true,
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "competitor_name": "Hardwork Revalida / Hardwork Medicina",
+      "hook_category": "antecipacao_funil",
+      "creative_format": "estatico",
+      "spend_tier": "Mid Spender"
+    },
+    {
+      "competitor_id": "hardwork_revalida",
+      "platform": "meta",
+      "ad_id": "ad_hardwork_revalida_02",
+      "headline": "vai fazer a revalida 2027?",
+      "body_text": "Campanha ativa de Meta Ads para Hardwork Revalida / Hardwork Medicina: Estático: vai fazer a revalida 2027?",
+      "call_to_action": "Saiba Mais",
+      "landing_page_url": "https://home.hardworkmedicina.com.br",
+      "media_url": null,
+      "start_date": "2026-04-01T00:00:00Z",
+      "is_active": true,
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "competitor_name": "Hardwork Revalida / Hardwork Medicina",
+      "hook_category": "antecipacao_funil",
+      "creative_format": "estatico",
+      "spend_tier": "Mid Spender"
+    }
+  ]
+}

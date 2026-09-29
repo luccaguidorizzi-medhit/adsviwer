@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mundo Revalida • Radar de Inteligência Competitiva & Google Ads</title>
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            clarity: {
+              bg: '#f8fafc',
+              card: '#ffffff',
+              cardHover: '#f1f5f9',
+              border: '#e2e8f0',
+              borderLight: '#cbd5e1',
+              emerald: '#16a34a',
+              emeraldLight: '#22c55e',
+              emeraldDark: '#15803d',
+              emeraldBg: 'rgba(22, 163, 74, 0.08)',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body { 
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+    }
+    .clarity-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease-in-out;
+    }
+    .clarity-card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.06);
+    }
+    .clarity-header {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .badge-emerald {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #047857;
+    }
+    .badge-slate {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+    }
+    .badge-amber {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #b45309;
+    }
+    .badge-indigo {
+      background: #eef2ff;
+      border: 1px solid #c7d2fe;
+      color: #4338ca;
+    }
+    .badge-sky {
+      background: #f0f9ff;
+      border: 1px solid #bae6fd;
+      color: #0369a1;
+    }
+    .badge-purple {
+      background: #faf5ff;
+      border: 1px solid #e9d5ff;
+      color: #7e22ce;
+    }
+    .tag-query {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      color: #334155;
+      transition: all 0.15s ease;
+    }
+    .tag-query:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      height: 6px;
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f8fafc;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="min-h-screen selection:bg-emerald-500 selection:text-white pb-12">
+
+  <!-- TOP APP BAR -->
+  <header class="clarity-header sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand & Product Title (Mundo Revalida) -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center shadow-md text-white font-bold">
+          <i data-lucide="crosshair" class="w-5 h-5 text-white"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-bold text-slate-900 tracking-tight">Mundo Revalida</h1>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 uppercase tracking-wide">
+              Radar Competitivo
+            </span>
+          </div>
+          <p class="text-xs text-slate-500">Auditoria Forense de Google Ads • Segregação de Temas • Inteligência Revalida INEP</p>
+        </div>
+      </div>
+
+      <!-- Action & Official Branding -->
+      <div class="flex items-center space-x-3">
+        <a href="/api/export-pdf?focus=master" target="_blank" class="flex items-center space-x-2 bg-white hover:bg-slate-50 text-slate-700 text-xs font-semibold px-3 py-2 rounded-lg transition-all border border-slate-200 shadow-sm">
+          <i data-lucide="file-text" class="w-3.5 h-3.5 text-emerald-600"></i>
+          <span>Dossiê PDF</span>
+        </a>
+        <button onclick="loadCompetitors()" class="flex items-center space-x-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3 py-2 rounded-lg transition-all shadow-sm">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+          <span>Atualizar</span>
+        </button>
+        <span class="text-xs text-slate-600 border-l border-slate-200 pl-3 flex items-center gap-1.5 font-semibold">
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i> Mundo Revalida
+        </span>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN VIEWPORT -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+
+    <!-- KPI CARDS ROW (LIGHT THEME SALES CLARITY STYLE) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- KPI 1: Concorrentes Monitorados -->
+      <div class="clarity-card rounded-xl p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Concorrentes no Radar</span>
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
+            <i data-lucide="users" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900 mt-2" id="kpi-total-comps">16</div>
+        <div class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+          <span class="text-emerald-600 font-semibold">100%</span> no mercado de Revalidação
+        </div>
+      </div>
+
+      <!-- KPI 2: Concorrentes com Ads Ativos no Google -->
+      <div class="clarity-card rounded-xl p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-emerald-700 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Com Ads no Google
+          </span>
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
+            <i data-lucide="check-circle" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900 mt-2" id="kpi-with-ads">7 Players</div>
+        <div class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+          <span class="text-emerald-600 font-semibold" id="kpi-percent-ads">44%</span> disputam Search & YouTube
+        </div>
+      </div>
+
+      <!-- KPI 3: Sem Mídia Ativa no Google Ads -->
+      <div class="clarity-card rounded-xl p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-slate-400"></span> Sem Ads no Google
+          </span>
+          <div class="w-8 h-8 rounded-lg bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600">
+            <i data-lucide="eye-off" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900 mt-2" id="kpi-without-ads">9 Players</div>
+        <div class="text-xs text-slate-500 mt-1">
+          Estratégia 100% Orgânica / Própria
+        </div>
+      </div>
+
+      <!-- KPI 4: Estimativa de Criativos de Revalida -->
+      <div class="clarity-card rounded-xl p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-sky-700 uppercase tracking-wider">Ads Específicos Revalida</span>
+          <div class="w-8 h-8 rounded-lg bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600">
+            <i data-lucide="split" class="w-4 h-4"></i>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900 mt-2" id="kpi-revalida-ads">~310 Ads</div>
+        <div class="text-xs text-slate-500 mt-1 flex items-center gap-1">
+          <span>Campanhas ativas no Google</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SEÇÃO DEDICADA: MUNDO REVALIDA (NOSSO BENCHMARK DE REFERÊNCIA) -->
+    <div id="our-brand-benchmark-section">
+      <!-- Populated dynamically via renderOurBrandBenchmark() -->
+    </div>
+
+    <!-- FILTER & CONTROLS TOOLBAR -->
+    <div class="clarity-card rounded-xl p-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+      
+      <!-- Primary Status Filter Pills -->
+      <div class="flex items-center space-x-2 overflow-x-auto pb-1 md:pb-0" id="status-filters">
+        <button onclick="filterStatus('all')" id="filter-pill-all" class="status-pill px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 text-white shadow-sm shrink-0 transition-all">
+          Todos os Concorrentes (<span id="count-all">16</span>)
+        </button>
+        <button onclick="filterStatus('with_ads')" id="filter-pill-with_ads" class="status-pill px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200 hover:text-slate-900 hover:bg-slate-200 shrink-0 transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Com Ads no Google (<span id="count-with-ads">7</span>)
+        </button>
+        <button onclick="filterStatus('no_ads')" id="filter-pill-no_ads" class="status-pill px-3.5 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200 hover:text-slate-900 hover:bg-slate-200 shrink-0 transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-slate-400"></span> Sem Mídia no Google (<span id="count-no-ads">9</span>)
+        </button>
+      </div>
+
+      <!-- Quick Search Input -->
+      <div class="relative w-full md:w-80 shrink-0">
+        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-2.5"></i>
+        <input type="text" id="competitor-search-input" onkeyup="filterCompetitors()" placeholder="Buscar concorrente, CNPJ ou termo..." class="w-full bg-slate-50 border border-slate-200 rounded-lg pl-9 pr-4 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors shadow-inner">
+      </div>
+    </div>
+
+    <!-- COMPETITORS LIST (EXTERNAL COMPETITORS ONLY) -->
+    <div id="competitors-list" class="space-y-5">
+      <!-- Dynamically populated via JS -->
+    </div>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    let allCompetitors = [];
+    let ourBrand = null;
+    let externalCompetitors = [];
+    let allGoogleAds = [];
+    let activeFilter = 'all'; // 'all', 'with_ads', 'no_ads'
+    let expandedCompetitors = new Set();
+    let isOurBrandExpanded = false;
+
+    async function loadCompetitors() {
+      try {
+        const [compRes, adsRes] = await Promise.all([
+          fetch('/api/competitors'),
+          fetch('/api/google-ads')
+        ]);
+        allCompetitors = await compRes.json();
+        allGoogleAds = await adsRes.json();
+
+        // Separate Mundo Revalida from external competitors
+        ourBrand = allCompetitors.find(c => c.id === 'mundo_revalida' || c.is_our_brand === 1);
+        externalCompetitors = allCompetitors.filter(c => c.id !== 'mundo_revalida' && !c.is_our_brand);
+
+        // Sort external competitors by Domain Reputation Score DESC
+        externalCompetitors.sort((a, b) => (b.domain_reputation_score || 0) - (a.domain_reputation_score || 0));
+
+        // Update counts (only external competitors)
+        const withAdsCount = externalCompetitors.filter(c => c.has_google_ads === 1).length;
+        const noAdsCount = externalCompetitors.length - withAdsCount;
+        const totalRevalidaAds = externalCompetitors.reduce((acc, c) => acc + (c.revalida_ads_count || 0), 0);
+        const percentWithAds = externalCompetitors.length > 0 ? Math.round((withAdsCount / externalCompetitors.length) * 100) : 0;
+
+        document.getElementById('kpi-total-comps').innerText = externalCompetitors.length;
+        document.getElementById('kpi-with-ads').innerText = `${withAdsCount} Players`;
+        document.getElementById('kpi-without-ads').innerText = `${noAdsCount} Players`;
+        document.getElementById('kpi-revalida-ads').innerText = `~${totalRevalidaAds} Ads`;
+        document.getElementById('kpi-percent-ads').innerText = `${percentWithAds}%`;
+
+        document.getElementById('count-all').innerText = externalCompetitors.length;
+        document.getElementById('count-with-ads').innerText = withAdsCount;
+        document.getElementById('count-no-ads').innerText = noAdsCount;
+
+        renderOurBrandBenchmark();
+        renderCompetitorCards(filterCompetitorsList(externalCompetitors));
+        lucide.createIcons();
+      } catch (err) {
+        console.error("Erro ao carregar dados:", err);
+      }
+    }
+
+    function renderOurBrandBenchmark() {
+      const container = document.getElementById('our-brand-benchmark-section');
+      if (!ourBrand) {
+        container.innerHTML = '';
+        return;
+      }
+
+      const c = ourBrand;
+      const kwList = c.google_ads_keywords ? c.google_ads_keywords.split(',').map(k => k.trim()).filter(Boolean) : [];
+      const userTermsList = c.user_search_terms ? c.user_search_terms.split(',').map(k => k.trim()).filter(Boolean) : [];
+      const organicTerms = (c.seo_top_organic_terms || '').split(',').map(t => t.trim()).filter(Boolean);
+      const domain = c.domain || 'mundorevalida.com.br';
+      const compAds = allGoogleAds.filter(a => a.competitor_id === c.id);
+
+      container.innerHTML = `
+        <div class="clarity-card rounded-2xl border-2 border-emerald-500/50 bg-gradient-to-b from-white to-emerald-50/20 overflow-hidden shadow-md">
+          
+          <!-- TOP BANNER -->
+          <div class="px-5 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 text-white flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
+              <span class="font-bold text-xs uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="crown" class="w-4 h-4 text-amber-300"></i> Nosso Posicionamento & Benchmark de Referência: Mundo Revalida (NÓS)
+              </span>
+            </div>
+            <div class="flex items-center gap-2 text-xs">
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-white font-semibold backdrop-blur-sm border border-white/30">
+                100% Hiperfocado no Revalida INEP
+              </span>
+            </div>
+          </div>
+
+          <!-- CONTENT BODY -->
+          <div class="p-5 sm:p-6 space-y-4">
+            
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+              
+              <!-- Identity & Links -->
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-2.5 flex-wrap">
+                  <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                    Mundo Revalida
+                  </h3>
+                  <span class="badge-emerald text-xs font-semibold px-2.5 py-0.5 rounded-md flex items-center gap-1">
+                    <i data-lucide="check" class="w-3.5 h-3.5"></i> Base Própria / Nosso Produto
+                  </span>
+                  <span class="badge-indigo text-xs font-semibold px-2.5 py-0.5 rounded-md">
+                    ${c.domain_reputation_label || 'DR 44 (Nicho Especialista)'}
+                  </span>
+                </div>
+
+                <p class="text-xs font-medium text-slate-600">
+                  <b class="text-slate-800">Proposta de Valor & Posicionamento Estratégico:</b> ${c.attack_front || 'Simulação Realística com Atores (Practicus SP) + Checklists Oficiais sem decoreba + Mentoria Direta'}
+                </p>
+
+                <!-- Channels & Links -->
+                <div class="flex items-center gap-2 text-xs text-slate-500 flex-wrap pt-1">
+                  <a href="${c.website_url || 'https://mundorevalida.com.br'}" target="_blank" class="hover:text-emerald-700 flex items-center gap-1 font-mono transition-colors text-slate-700 font-semibold">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-emerald-600"></i> mundorevalida.com.br <i data-lucide="external-link" class="w-2.5 h-2.5 text-slate-400"></i>
+                  </a>
+                  ${c.youtube_url ? `<a href="${c.youtube_url}" target="_blank" class="hover:text-red-600 flex items-center gap-1 transition-colors text-slate-700"><i data-lucide="youtube" class="w-3.5 h-3.5 text-red-500"></i> YouTube</a>` : ''}
+                  ${c.instagram_user ? `<a href="https://instagram.com/${c.instagram_user}" target="_blank" class="hover:text-pink-600 flex items-center gap-1 transition-colors text-slate-700"><i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500"></i> @${c.instagram_user}</a>` : ''}
+                </div>
+              </div>
+
+              <!-- Estimated Spend & Actions -->
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 shrink-0">
+                <div class="text-left sm:text-right">
+                  <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Investimento Estimado de Mídia</div>
+                  <div class="text-sm font-bold text-amber-700 leading-tight">${c.estimated_monthly_spend || 'R$ 3.500 - 6.500/mês'}</div>
+                  <div class="text-[11px] text-slate-400">Hiperfocado no público do Revalida</div>
+                </div>
+
+                <button onclick="toggleOurBrandExpand()" class="flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold transition-all ${
+                  isOurBrandExpanded 
+                    ? 'bg-slate-200 text-slate-800 hover:bg-slate-300' 
+                    : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm'
+                }">
+                  <span>${isOurBrandExpanded ? 'Recolher Dossiê Próprio' : 'Ver Nosso Dossiê Completo'}</span>
+                  <i data-lucide="${isOurBrandExpanded ? 'chevron-up' : 'chevron-down'}" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- OUR BRAND HIGHLIGHTS GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-3 border-t border-slate-200/80 text-xs">
+              
+              <!-- Card 1: Produção de Conteúdo -->
+              <div class="bg-white p-3.5 rounded-xl border border-slate-200 space-y-1.5 shadow-sm">
+                <div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <i data-lucide="video" class="w-3.5 h-3.5 text-emerald-600"></i> Volume de Conteúdo Mensal
+                </div>
+                <div class="text-slate-700 font-medium leading-relaxed">
+                  <div><b>YouTube:</b> ${c.content_volume_youtube || '4 a 6 vídeos/mês (Checklists e Simulações)'}</div>
+                  <div class="mt-1"><b>TikTok/Reels:</b> ${c.content_volume_tiktok || '10 a 15 cortes/mês (Erros capitais)'}</div>
+                </div>
+              </div>
+
+              <!-- Card 2: SEO & Domínio -->
+              <div class="bg-white p-3.5 rounded-xl border border-slate-200 space-y-1.5 shadow-sm">
+                <div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5 text-emerald-600"></i> Autoridade & SEO Orgânico
+                </div>
+                <div class="text-slate-700 font-medium leading-relaxed">
+                  <div><b>Palavras indexadas:</b> ${c.seo_keywords_count || '~650 termos'}</div>
+                  <div class="mt-1"><b>Backlinks estimados:</b> ${c.seo_backlinks_estimate || '~1.800 (DR 44)'}</div>
+                </div>
+              </div>
+
+              <!-- Card 3: O que os Médicos Pesquisam de Nós -->
+              <div class="bg-white p-3.5 rounded-xl border border-slate-200 space-y-1.5 shadow-sm">
+                <div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                  <i data-lucide="search" class="w-3.5 h-3.5 text-emerald-600"></i> Nossos Principais Termos de Busca
+                </div>
+                <div class="flex flex-wrap gap-1">
+                  ${userTermsList.slice(0, 5).map(term => `
+                    <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-50 text-emerald-800 border border-emerald-200">
+                      "${term}"
+                    </span>
+                  `).join('')}
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- EXPANDED DRAWER FOR OUR BRAND -->
+          ${isOurBrandExpanded ? renderExpandedSection(c, domain, compAds) : ''}
+
+        </div>
+      `;
+    }
+
+    function toggleOurBrandExpand() {
+      isOurBrandExpanded = !isOurBrandExpanded;
+      renderOurBrandBenchmark();
+      lucide.createIcons();
+    }
+
+    function renderCompetitorCards(competitors) {
+      const container = document.getElementById('competitors-list');
+      container.innerHTML = '';
+
+      if (competitors.length === 0) {
+        container.innerHTML = `
+          <div class="clarity-card rounded-xl p-12 text-center text-slate-500 space-y-2">
+            <i data-lucide="filter-x" class="w-8 h-8 text-slate-400 mx-auto"></i>
+            <div class="text-sm font-semibold text-slate-700">Nenhum concorrente encontrado com os filtros aplicados.</div>
+            <div class="text-xs text-slate-500">Tente ajustar a busca ou alternar entre os filtros de mídia.</div>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      competitors.forEach(c => {
+        const isExpanded = expandedCompetitors.has(c.id);
+        const hasAds = c.has_google_ads === 1;
+
+        // Ads specific to this competitor
+        const compAds = allGoogleAds.filter(a => a.competitor_id === c.id);
+
+        // Domain & Root Domain
+        const domain = c.domain || (c.website_url ? c.website_url.replace('https://', '').replace('http://', '').replace('www.', '').split('/')[0] : '');
+        const rootDomain = c.root_domain || domain;
+        const hasDistinctRoot = rootDomain && domain && rootDomain.toLowerCase() !== domain.toLowerCase();
+
+        // Keywords bought
+        const kwList = c.google_ads_keywords ? c.google_ads_keywords.split(',').map(k => k.trim()).filter(Boolean) : [];
+        
+        // Search terms typed by candidates
+        const userTermsList = c.user_search_terms ? c.user_search_terms.split(',').map(k => k.trim()).filter(Boolean) : [];
+
+        // Revalida vs other themes calculations
+        const totalAdsApprox = c.google_ads_count_approx || 0;
+        const revalidaAds = c.revalida_ads_count || 0;
+        const otherThemesAds = c.other_themes_ads_count || 0;
+        const revalidaPercent = totalAdsApprox > 0 ? Math.round((revalidaAds / totalAdsApprox) * 100) : 0;
+        const otherPercent = 100 - revalidaPercent;
+
+        const card = document.createElement('div');
+        card.id = `card-comp-${c.id}`;
+        card.className = `clarity-card rounded-2xl transition-all duration-200 overflow-hidden ${
+          isExpanded 
+            ? 'ring-2 ring-emerald-500 border-emerald-400 shadow-xl bg-white' 
+            : 'border border-slate-200 hover:border-slate-300'
+        }`;
+
+        card.innerHTML = `
+          <!-- CARD HEADER -->
+          <div class="p-4 sm:p-5">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+              
+              <!-- Left: Identity, Badges, Links -->
+              <div class="space-y-1.5 w-full lg:w-auto">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h3 class="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                    ${c.name}
+                  </h3>
+
+                  <!-- Google Ads Status Badge -->
+                  ${hasAds 
+                    ? `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-semibold badge-emerald">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Mídia Ativa no Google (~${revalidaAds} ads de Revalida)
+                       </span>`
+                    : `<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-medium badge-slate">
+                        <span class="w-2 h-2 rounded-full bg-slate-400"></span> Sem Anúncios no Google (0 ads)
+                       </span>`
+                  }
+
+                  <!-- Domain Reputation Badge -->
+                  <span class="text-xs px-2.5 py-0.5 rounded-md badge-indigo font-semibold">
+                    ${c.domain_reputation_label || ('DR ' + (c.domain_reputation_score || '-'))}
+                  </span>
+
+                  <!-- Tier Pill -->
+                  <span class="text-xs px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200 font-medium">
+                    ${c.tier || 'Especialista'}
+                  </span>
+                </div>
+
+                <!-- RELEVÂNCIA REVALIDA INEP HIGHLIGHT BAR -->
+                <div class="flex items-center gap-2 flex-wrap pt-1">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold ${
+                    ["hardwork_revalida", "bastidores_revalida", "revalideii", "revalida_360", "revmed_mentoria", "medtwins_revalida", "alphamed_revalida", "pense_revalida"].includes(c.id) || (revalidaPercent >= 75)
+                      ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' 
+                      : 'bg-sky-100 text-sky-900 border border-sky-300'
+                  } shadow-xs">
+                    <i data-lucide="${
+                      ["hardwork_revalida", "bastidores_revalida", "revalideii", "revalida_360", "revmed_mentoria", "medtwins_revalida", "alphamed_revalida", "pense_revalida"].includes(c.id) || (revalidaPercent >= 75)
+                        ? 'star' 
+                        : 'layers'
+                    }" class="w-3.5 h-3.5 ${
+                      ["hardwork_revalida", "bastidores_revalida", "revalideii", "revalida_360", "revmed_mentoria", "medtwins_revalida", "alphamed_revalida", "pense_revalida"].includes(c.id) || (revalidaPercent >= 75)
+                        ? 'text-amber-500 fill-amber-500' 
+                        : 'text-sky-600'
+                    }"></i>
+                    <span>${
+                      ["hardwork_revalida", "bastidores_revalida", "revalideii", "revalida_360", "revmed_mentoria", "medtwins_revalida", "alphamed_revalida", "pense_revalida"].includes(c.id) || (revalidaPercent >= 75)
+                        ? '★ Relevância Revalida: 100% Especialista' 
+                        : `◆ Relevância Revalida: Ecossistema Misto (~${revalidaPercent}% Revalida / ~${otherPercent}% Residência)`
+                    }</span>
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-slate-100 text-slate-700 border border-slate-200">
+                    <i data-lucide="crosshair" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>Foco de Preparação: <b class="text-slate-900">${
+                      ["revalideii", "revalida_360", "revmed_mentoria", "alphamed_revalida"].includes(c.id)
+                        ? '2ª Fase Prática (Estações Clínicas & Simulação)' 
+                        : 'Ambas as Fases (1ª Fase Teórica + 2ª Fase Prática)'
+                    }</b></span>
+                  </span>
+                </div>
+
+                <!-- Links Bar with Subdomain Support -->
+                <div class="flex items-center gap-2 text-xs text-slate-500 flex-wrap pt-0.5">
+                  ${hasDistinctRoot ? `
+                    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-50 border border-slate-200 font-mono text-[11px] text-slate-700">
+                      <span class="text-slate-400 text-[10px] uppercase font-sans font-semibold">Subdomínio:</span>
+                      <a href="https://${domain}" target="_blank" class="text-emerald-700 hover:underline flex items-center gap-0.5 font-bold">${domain} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>
+                    </span>
+                    <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-slate-50/70 border border-slate-200 font-mono text-[11px] text-slate-600">
+                      <span class="text-slate-400 text-[10px] uppercase font-sans">Domínio Raiz:</span>
+                      <a href="https://${rootDomain}" target="_blank" class="text-slate-700 hover:text-slate-900 flex items-center gap-0.5">${rootDomain} <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>
+                    </span>
+                  ` : (domain ? `
+                    <a href="https://${domain}" target="_blank" class="hover:text-emerald-700 flex items-center gap-1 font-mono transition-colors text-slate-700 font-medium">${domain} <i data-lucide="external-link" class="w-2.5 h-2.5 text-slate-400"></i></a>
+                  ` : '')}
+                  ${c.youtube_url ? `<a href="${c.youtube_url}" target="_blank" class="hover:text-red-600 flex items-center gap-1 transition-colors text-slate-600"><i data-lucide="youtube" class="w-3.5 h-3.5 text-red-500"></i> YouTube</a>` : ''}
+                  ${c.instagram_user ? `<a href="https://instagram.com/${c.instagram_user}" target="_blank" class="hover:text-pink-600 flex items-center gap-1 transition-colors text-slate-600"><i data-lucide="instagram" class="w-3.5 h-3.5 text-pink-500"></i> @${c.instagram_user}</a>` : ''}
+                </div>
+                <!-- Proposta de Valor & Posicionamento Estratégico -->
+                <div class="mt-2 text-xs text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                  <span class="text-slate-500 font-bold uppercase tracking-wider text-[10px] flex items-center gap-1">
+                    <i data-lucide="compass" class="w-3.5 h-3.5 text-emerald-600"></i> Proposta de Valor & Posicionamento Estratégico:
+                  </span>
+                  <p class="text-xs font-semibold text-slate-800 mt-1 leading-relaxed">${c.attack_front || 'Posicionamento estratégico não informado'}</p>
+                </div>
+              </div>
+
+              <!-- Right: Spend & Single Action Button -->
+              <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between sm:justify-end gap-3 sm:gap-4 w-full lg:w-auto shrink-0 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-200">
+                <div class="text-left sm:text-right">
+                  <div class="text-[10px] uppercase tracking-wider text-slate-500 font-semibold">Investimento Estimado de Mídia</div>
+                  <div class="text-sm font-bold text-amber-700 max-w-xs leading-tight">${c.estimated_monthly_spend || 'R$ 2.000 - 5.000/mês'}</div>
+                  <div class="text-[10px] text-slate-400">Google Search & YouTube</div>
+                </div>
+
+                <!-- SINGLE EXPAND BUTTON -->
+                <button onclick="toggleExpand('${c.id}')" class="w-full sm:w-auto flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg text-xs font-semibold transition-all min-h-[42px] ${
+                  isExpanded 
+                    ? 'bg-slate-200 text-slate-800 hover:bg-slate-300 border border-slate-300' 
+                    : 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm'
+                }">
+                  <span>${isExpanded ? 'Recolher Dossiê' : 'Ver Anúncios & Detalhes'}</span>
+                  <i data-lucide="${isExpanded ? 'chevron-up' : 'chevron-down'}" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- STRUCTURED DATA GRID -->
+            <div class="mt-4 pt-4 border-t border-slate-200 space-y-3">
+              
+              <!-- SECTION A: SEGREGAÇÃO DE TEMAS (REVALIDA VS OUTROS TEMAS) -->
+              ${hasAds ? `
+                <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2">
+                  <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs gap-1.5">
+                    <div class="flex items-center gap-2">
+                      <span class="font-bold text-slate-800 flex items-center gap-1.5">
+                        <i data-lucide="pie-chart" class="w-3.5 h-3.5 text-emerald-600"></i>
+                        Divisão de Mídia: Revalida INEP vs Outros Temas
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-3 text-[11px] flex-wrap">
+                      <span class="text-emerald-700 font-bold">🎯 Revalida INEP: ~${revalidaAds} ads (${revalidaPercent}%)</span>
+                      <span class="text-slate-500 font-medium">🏢 Outros Temas: ~${otherThemesAds} ads (${otherPercent}%)</span>
+                    </div>
+                  </div>
+
+                  <!-- Proportion Bar -->
+                  <div class="w-full bg-slate-200 rounded-full h-2 overflow-hidden flex">
+                    <div class="bg-emerald-500 h-full transition-all" style="width: ${revalidaPercent}%" title="Revalida INEP: ${revalidaPercent}%"></div>
+                    <div class="bg-slate-400 h-full transition-all" style="width: ${otherPercent}%" title="Outros Temas: ${otherPercent}%"></div>
+                  </div>
+
+                  <!-- Other Themes Description -->
+                  ${c.other_themes_description ? `
+                    <div class="text-[11px] text-slate-600 pt-0.5">
+                      <span class="text-slate-700 font-semibold">Outros temas atacados pelo anunciante:</span> ${c.other_themes_description}
+                    </div>
+                  ` : ''}
+                </div>
+              ` : `
+                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-xs text-slate-600 flex items-center gap-2">
+                  <i data-lucide="info" class="w-4 h-4 text-slate-400 shrink-0"></i>
+                  <span><b>Estratégia 100% Fora do Google Ads:</b> Este concorrente não compra leilão de Search/YouTube para Revalidação Médica. Captação focada em canais próprios, SEO orgânico ou presença física.</span>
+                </div>
+              `}
+
+              <!-- SECTION B: PALAVRAS-CHAVE E ONDE APARECE -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 text-xs">
+                
+                <!-- Palavras-chave Compradas -->
+                <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                  <div class="flex items-center gap-1.5 text-sky-800 font-bold mb-2">
+                    <i data-lucide="target" class="w-4 h-4 text-sky-600"></i>
+                    <span>Palavras-Chave Compradas no Google Ads:</span>
+                  </div>
+                  ${hasAds && kwList.length > 0 
+                    ? `<div class="flex flex-wrap gap-1.5">
+                        ${kwList.map(kw => `<span class="px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-50 text-sky-900 border border-sky-300 shadow-xs hover:border-sky-400 transition-colors">${kw}</span>`).join('')}
+                       </div>`
+                    : `<p class="text-slate-500 text-xs italic">✕ Nenhuma palavra comprada no Google Search / YouTube Ads.</p>`
+                  }
+                </div>
+
+                <!-- Onde os Ads Aparecem -->
+                <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+                  <div class="flex items-center gap-1.5 text-purple-800 font-bold mb-2">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-purple-600"></i>
+                    <span>Onde os Anúncios Aparecem (Canais & Redes):</span>
+                  </div>
+                  <p class="text-slate-800 text-xs leading-relaxed font-medium">
+                    ${c.google_ads_placements || 'Google Search, YouTube e Rede de Display.'}
+                  </p>
+                  <div class="mt-2.5 pt-2.5 border-t border-slate-200 text-[11px] text-slate-600 flex items-center justify-between flex-wrap gap-1">
+                    <span>Vídeos YouTube: <b class="text-slate-800">${c.content_volume_youtube ? c.content_volume_youtube.split('(')[0] : '4-8 vídeos/mês'}</b></span>
+                    <span>TikTok/Reels: <b class="text-slate-800">${c.content_volume_tiktok ? c.content_volume_tiktok.split('(')[0] : '10-15/mês'}</b></span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- SECTION C: O QUE OS CANDIDATOS PESQUISAM (COM DESTAQUE MÁXIMO) -->
+              <div class="bg-gradient-to-r from-emerald-50/70 to-teal-50/50 p-4 sm:p-5 rounded-xl border border-emerald-300 space-y-3 shadow-xs">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <div class="flex items-center gap-2 text-emerald-950 font-bold text-xs sm:text-sm">
+                    <i data-lucide="help-circle" class="w-4 h-4 text-emerald-700"></i>
+                    <span>O que os Médicos / Candidatos Realmente Pesquisam no Google & YouTube (${userTermsList.length} buscas reais de intenção):</span>
+                  </div>
+                  <span class="text-[10px] text-emerald-900 font-mono font-bold bg-white px-2.5 py-1 rounded-md border border-emerald-300 shadow-xs">Alta Intenção de Conversão</span>
+                </div>
+                
+                <div class="flex flex-wrap gap-2">
+                  ${userTermsList.map(term => `
+                    <span class="tag-query px-3 py-1.5 rounded-lg text-xs font-bold font-mono cursor-default bg-white border border-emerald-300 text-emerald-950 shadow-xs hover:border-emerald-500 transition-colors">
+                      "${term}"
+                    </span>
+                  `).join('')}
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ACTIVE DOSSIER CONNECTOR RIBBON -->
+          ${isExpanded ? `
+            <div class="px-4 sm:px-5 py-2.5 bg-emerald-50 border-t border-b border-emerald-200 flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="font-bold text-emerald-800 uppercase tracking-wider text-[11px]">Dossiê Aberto • Pareamento Google Ads & SEO</span>
+                <span class="text-slate-600 text-[11px]">— Conectado a <b>${c.name}</b></span>
+              </div>
+              <button onclick="toggleExpand('${c.id}')" class="text-slate-500 hover:text-slate-900 flex items-center gap-1 text-[11px] font-semibold transition-colors shrink-0">
+                <span>Recolher Dossiê</span>
+                <i data-lucide="chevron-up" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          ` : ''}
+
+          <!-- EXPANDED DRAWER (NESTED AS INSET CONSOLE TRAY) -->
+          ${isExpanded ? renderExpandedSection(c, domain, compAds) : ''}
+        `;
+        container.appendChild(card);
+      });
+      lucide.createIcons();
+    }
+
+    function renderExpandedSection(c, domain, compAds) {
+      const rootDomain = c.root_domain || domain;
+      const hasDistinctRoot = rootDomain && domain && rootDomain.toLowerCase() !== domain.toLowerCase();
+      const subdomainUrl = `https://adstransparency.google.com/?region=anywhere&domain=${encodeURIComponent(domain)}`;
+      const rootDomainUrl = `https://adstransparency.google.com/?region=anywhere&domain=${encodeURIComponent(rootDomain)}`;
+      const legalSearchUrl = `https://adstransparency.google.com/?region=anywhere&term=${encodeURIComponent(c.legal_name || c.name)}`;
+      const directAdsUrl = c.advertiser_id ? `https://adstransparency.google.com/advertiser/${c.advertiser_id}` : subdomainUrl;
+      const cachedSeo = c.seo_cached_result ? JSON.parse(c.seo_cached_result) : null;
+      const hasAds = c.has_google_ads === 1;
+
+      return `
+        <!-- NESTED INSET TRAY (LIGHT THEME) -->
+        <div class="mx-2 sm:mx-4 my-4 p-4 sm:p-6 rounded-2xl border border-slate-200 bg-slate-50 space-y-6 shadow-inner">
+          
+          <!-- CENTRO DE PAREAMENTO GOOGLE ADS TRANSPARENCY & VERIFICAÇÃO JURÍDICA -->
+          <div class="p-4 sm:p-5 rounded-xl border border-emerald-200 bg-white space-y-4 shadow-sm">
+            
+            <!-- Header -->
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold shrink-0 mt-0.5">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <div class="space-y-1">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h5 class="text-sm sm:text-base font-bold text-slate-900">Google Ads Transparency • Pareamento de Anunciante</h5>
+                  ${hasDistinctRoot ? '<span class="badge-sky text-[10px] px-2 py-0.5 rounded font-mono font-semibold">Subdomínio Mapeado</span>' : ''}
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Histórico oficial de anúncios, formatos e criativos em tempo real no Google Ads. Use o domínio, o subdomínio ou a Razão Social verificada.
+                </p>
+              </div>
+            </div>
+
+            <!-- LEGAL ENTITY, CNPJ & BIO LINKS DATA GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-1 text-xs">
+              
+              <!-- Box 1: Razão Social / Nome da Entidade Anunciante -->
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div class="text-[10px] uppercase font-bold tracking-wider text-slate-500 flex items-center gap-1.5">
+                    <i data-lucide="building-2" class="w-3.5 h-3.5 text-emerald-600"></i>
+                    <span>Razão Social / Entidade:</span>
+                  </div>
+                  <div class="text-xs font-semibold text-slate-900 mt-1.5 break-words font-mono leading-snug">
+                    ${c.legal_name || c.name}
+                  </div>
+                </div>
+                <div class="pt-2 border-t border-slate-200 flex items-center justify-between">
+                  <span class="text-[10px] text-slate-400">Nome Oficial</span>
+                  <button onclick="copyToClipboard('${(c.legal_name || c.name).replace(/'/g, "\\'")}', 'Razão Social copiada!')" class="text-[11px] font-semibold text-emerald-700 hover:text-emerald-800 flex items-center gap-1 transition-colors">
+                    <i data-lucide="copy" class="w-3 h-3"></i> Copiar Nome
+                  </button>
+                </div>
+              </div>
+
+              <!-- Box 2: CNPJ Oficial -->
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2 flex flex-col justify-between">
+                <div>
+                  <div class="text-[10px] uppercase font-bold tracking-wider text-slate-500 flex items-center gap-1.5">
+                    <i data-lucide="file-text" class="w-3.5 h-3.5 text-sky-600"></i>
+                    <span>CNPJ Oficial (Receita Federal):</span>
+                  </div>
+                  <div class="text-sm font-bold text-sky-800 mt-1.5 font-mono tracking-wide">
+                    ${c.cnpj || 'Sob Consulta'}
+                  </div>
+                </div>
+                <div class="pt-2 border-t border-slate-200 flex items-center justify-between">
+                  <span class="text-[10px] text-slate-400">Registro Fiscal</span>
+                  ${c.cnpj ? `
+                    <button onclick="copyToClipboard('${c.cnpj}', 'CNPJ copiado!')" class="text-[11px] font-semibold text-sky-700 hover:text-sky-800 flex items-center gap-1 transition-colors">
+                      <i data-lucide="copy" class="w-3 h-3"></i> Copiar CNPJ
+                    </button>
+                  ` : ''}
+                </div>
+              </div>
+
+              <!-- Box 3: Links Rastreados em Bios & Descrições -->
+              <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2 md:col-span-2 lg:col-span-1">
+                <div class="text-[10px] uppercase font-bold tracking-wider text-slate-500 flex items-center gap-1.5">
+                  <i data-lucide="link" class="w-3.5 h-3.5 text-purple-600"></i>
+                  <span>Links em Bios, Vídeos & LPs:</span>
+                </div>
+                <div class="flex flex-wrap gap-1 mt-1 max-h-24 overflow-y-auto pr-1">
+                  ${(c.bio_links || domain).split(',').map(l => l.trim()).filter(Boolean).map(link => `
+                    <a href="${link.startsWith('http') ? link : 'https://' + link}" target="_blank" class="px-2 py-0.5 rounded bg-white border border-slate-200 hover:border-purple-300 text-[10px] font-mono text-purple-700 hover:text-purple-900 flex items-center gap-1 transition-colors shadow-xs">
+                      ${link.replace('https://', '').replace('http://', '').slice(0, 28)}
+                      <i data-lucide="external-link" class="w-2.5 h-2.5 text-slate-400"></i>
+                    </a>
+                  `).join('')}
+                </div>
+              </div>
+
+            </div>
+
+            <!-- DIRECT ACTION LAUNCH BUTTONS -->
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 flex-wrap">
+              
+              <!-- Button 1: Perfil Oficial Direto ou Subdomínio -->
+              <a href="${directAdsUrl}" target="_blank" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs shadow-sm transition-all text-center min-h-[42px]">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                <span>${c.advertiser_id ? 'Abrir Perfil Oficial no Ads Transparency ↗' : `Abrir Ads por ${hasDistinctRoot ? 'Subdomínio' : 'Domínio'} (${domain})`}</span>
+                <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+              </a>
+
+              <!-- Button 2 (If Subdomain): Domínio Raiz -->
+              ${hasDistinctRoot ? `
+                <a href="${rootDomainUrl}" target="_blank" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white hover:bg-slate-100 text-sky-700 border border-sky-300 font-semibold text-xs transition-all text-center min-h-[42px] shadow-xs">
+                  <i data-lucide="globe" class="w-3.5 h-3.5 text-sky-600"></i>
+                  <span>Abrir Ads por Domínio Raiz (${rootDomain})</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+              ` : ''}
+
+              <!-- Button 3: Pesquisa por Razão Social / Nome da Entidade -->
+              <a href="${legalSearchUrl}" target="_blank" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 hover:border-emerald-500 font-semibold text-xs transition-all text-center min-h-[42px] shadow-xs">
+                <i data-lucide="search-code" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>Pesquisar por Razão Social ↗</span>
+              </a>
+
+              <!-- Button 4: Sincronização Automática via SerpApi -->
+              <button onclick="syncSerpApiAds('${c.id}')" id="btn-sync-serpapi-${c.id}" class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 hover:border-emerald-400 font-semibold text-xs transition-all text-center min-h-[42px] shadow-xs">
+                <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>⚡ Sincronizar via SerpApi</span>
+                ${c.last_serpapi_sync ? `<span class="text-[10px] text-emerald-700 font-mono ml-1">(${c.last_serpapi_sync})</span>` : ''}
+              </button>
+
+            </div>
+
+            <!-- Helpful matching hint -->
+            <div class="text-[11px] text-slate-600 bg-slate-50 p-2.5 rounded-lg border border-slate-200 flex items-center gap-2">
+              <i data-lucide="info" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+              <span><b>Pareamento à prova de falhas:</b> Se a busca por domínio não listar anúncios de imediato, clique em <i>"Pesquisar por Razão Social"</i> ou cole o <b>CNPJ</b> copiado acima diretamente no Google Ads Transparency.</span>
+            </div>
+
+          </div>
+
+          <!-- AUDITED AD CREATIVES -->
+          <div>
+            ${renderCompetitorAdCards(compAds, c)}
+          </div>
+
+          <!-- SEO & SERP ON-DEMAND ANALYSIS -->
+          <div class="p-4 sm:p-5 rounded-xl border border-slate-200 bg-white space-y-4 shadow-sm">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                  <i data-lucide="search" class="w-4 h-4 text-emerald-600"></i>
+                  Auditoria de SEO, Palavras-Chave & SERP do Website
+                </h4>
+                <p class="text-xs text-slate-500 mt-0.5">
+                  Conexão em tempo real ao site do concorrente para extrair meta tags, H1/H2 e perfil completo de palavras-chave.
+                </p>
+              </div>
+
+              <button onclick="runSeoAnalysis('${c.id}')" id="btn-seo-${c.id}" class="w-full sm:w-auto px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-2 shrink-0 min-h-[42px]">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-emerald-600"></i>
+                <span>${cachedSeo ? 'Reanalisar SEO Agora' : '⚡ Analisar SEO & SERP do Site'}</span>
+              </button>
+            </div>
+
+            <!-- SEO Results Container -->
+            <div id="seo-result-${c.id}" class="space-y-3">
+              ${cachedSeo ? renderSeoDetails(cachedSeo) : renderSeoInitialPlaceholder(c)}
+            </div>
+          </div>
+
+          <!-- EXPLICIT DOSSIER FOOTER COLLAPSE BAR -->
+          <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+            <span class="text-slate-500 text-[11px] flex items-center gap-1.5">
+              <i data-lucide="check-check" class="w-3.5 h-3.5 text-emerald-600"></i> Fim do dossiê de <b>${c.name}</b>
+            </span>
+            <button onclick="toggleExpand('${c.id}')" class="w-full sm:w-auto px-4 py-2 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 text-xs font-semibold transition-all flex items-center justify-center gap-1.5 shadow-sm">
+              <i data-lucide="chevron-up" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Fechar Dossiê de Anúncios & Detalhes</span>
+            </button>
+          </div>
+
+        </div>
+      `;
+    }
+
+    function renderOrganicTermsList(terms, uniqueId) {
+      if (!terms || terms.length === 0) return '<p class="text-slate-400 text-xs italic">Nenhum termo catalogado.</p>';
+      const isLong = terms.length > 20;
+      const initialTerms = isLong ? terms.slice(0, 20) : terms;
+      const extraTerms = isLong ? terms.slice(20) : [];
+
+      return `
+        <div class="space-y-2.5">
+          <div class="flex flex-wrap gap-2">
+            ${initialTerms.map(t => `<span class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-emerald-950 border border-emerald-300 shadow-xs hover:border-emerald-500 hover:bg-emerald-50/50 transition-colors">${t}</span>`).join('')}
+            ${isLong ? `
+              <div id="more-terms-${uniqueId}" class="hidden flex flex-wrap gap-2 pt-1">
+                ${extraTerms.map(t => `<span class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-emerald-950 border border-emerald-300 shadow-xs hover:border-emerald-500 hover:bg-emerald-50/50 transition-colors">${t}</span>`).join('')}
+              </div>
+            ` : ''}
+          </div>
+          ${isLong ? `
+            <button onclick="toggleMoreTermsDisplay('${uniqueId}', ${extraTerms.length})" id="btn-toggle-terms-${uniqueId}" class="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 hover:text-emerald-900 bg-white px-3.5 py-1.5 rounded-lg border border-emerald-300 shadow-xs transition-all mt-1">
+              <span>+ Ver mais ${extraTerms.length} termos de tráfego orgânico</span>
+              <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+            </button>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    function toggleMoreTermsDisplay(uniqueId, count) {
+      const container = document.getElementById(`more-terms-${uniqueId}`);
+      const btn = document.getElementById(`btn-toggle-terms-${uniqueId}`);
+      if (!container || !btn) return;
+      const isHidden = container.classList.contains('hidden');
+      if (isHidden) {
+        container.classList.remove('hidden');
+        btn.innerHTML = `<span>Recolher ${count} termos</span><i data-lucide="chevron-up" class="w-3.5 h-3.5"></i>`;
+      } else {
+        container.classList.add('hidden');
+        btn.innerHTML = `<span>+ Ver mais ${count} termos de tráfego</span><i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>`;
+      }
+      lucide.createIcons();
+    }
+
+    function renderCompetitorAdCards(ads, c) {
+      const directAdsUrl = c.advertiser_id 
+        ? `https://adstransparency.google.com/advertiser/${c.advertiser_id}` 
+        : `https://adstransparency.google.com/?region=anywhere&domain=${encodeURIComponent(c.domain || '')}`;
+
+      if (!ads || ads.length === 0) {
+        return `
+          <div class="p-4 rounded-xl border border-slate-200 bg-white text-xs text-slate-600 flex items-center justify-between gap-3 shadow-xs flex-wrap">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="info" class="w-5 h-5 text-slate-400 shrink-0"></i>
+              <div>
+                <b class="text-slate-800">Criativos no Google Ads:</b> 
+                ${c.has_google_ads === 1 
+                  ? 'Este player possui histórico de campanhas no Google Ads. Use o botão ao lado para consultar a transparência oficial do Google.' 
+                  : 'Este player não veicula campanhas ativas no Google Ads. Captação realizada através de SEO orgânico, canais proprietários e redes sociais.'
+                }
+              </div>
+            </div>
+            ${c.has_google_ads === 1 ? `
+              <a href="${directAdsUrl}" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-semibold text-xs transition-colors shrink-0 shadow-xs">
+                <span>Acessar Criativos no Google Ads Transparency ↗</span>
+              </a>
+            ` : ''}
+          </div>
+        `;
+      }
+
+      const displayedAds = ads.slice(0, 5);
+
+      return `
+        <div class="space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-1 border-b border-slate-200">
+            <div class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+              <i data-lucide="copy" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Amostra de Criativos Auditados de Revalidação (${displayedAds.length} de ${ads.length} criativos${ads.length > 5 ? ` • +${ads.length - 5} adicionais no banco` : ''}):</span>
+            </div>
+            <a href="${directAdsUrl}" target="_blank" class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-white hover:bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-300 shadow-xs transition-colors shrink-0">
+              <i data-lucide="external-link" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Acessar Criativos no Google Ads Transparency Center ↗</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            ${displayedAds.map(ad => `
+              <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-2.5 shadow-xs flex flex-col justify-between">
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between text-[10px]">
+                    <span class="badge-emerald px-1.5 py-0.5 rounded font-semibold">${ad.ad_format}</span>
+                    <span class="text-slate-400 font-mono">${ad.first_seen || 'Ativo'}</span>
+                  </div>
+                  <h5 class="text-xs font-bold text-slate-900 leading-snug">${ad.headline}</h5>
+                  <p class="text-[11px] text-slate-600 leading-relaxed">${ad.body_text}</p>
+                </div>
+                <div class="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px]">
+                  <button onclick="copyToClipboard('${(ad.headline + ' — ' + ad.body_text).replace(/'/g, "\\'")}')" class="text-emerald-700 hover:text-emerald-800 flex items-center gap-1 font-semibold transition-colors">
+                    <i data-lucide="copy" class="w-3 h-3"></i> Copiar Copy
+                  </button>
+                  ${ad.target_url ? `<a href="${ad.target_url}" target="_blank" class="text-slate-500 hover:text-slate-800 flex items-center gap-0.5 transition-colors font-medium">Destino <i data-lucide="external-link" class="w-2.5 h-2.5"></i></a>` : ''}
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSeoInitialPlaceholder(c) {
+      const terms = (c.seo_top_organic_terms || 'revalida inep, preparatorio revalida').split(',').map(t => t.trim()).filter(Boolean);
+      return `
+        <div class="space-y-3 pt-1 text-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="text-slate-500 text-[11px] font-semibold uppercase tracking-wider">Palavras-Chave Indexadas (Est.)</div>
+              <div class="text-base font-bold text-slate-900 mt-1">${c.seo_keywords_count || '~1.200 termos'}</div>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="text-slate-500 text-[11px] font-semibold uppercase tracking-wider">Perfil de Backlinks (Est.)</div>
+              <div class="text-base font-bold text-slate-900 mt-1">${c.seo_backlinks_estimate || '~3.500 backlinks'}</div>
+            </div>
+          </div>
+
+          <!-- FULL LIST OF ORGANIC TERMS COM DESTAQUE MÁXIMO -->
+          <div class="p-4 bg-emerald-50/60 rounded-xl border border-emerald-200 space-y-3 shadow-xs">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="text-emerald-950 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i>
+                <span>Termos de Maior Tráfego Orgânico no Google (${terms.length} termos catalogados):</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-mono font-bold bg-white px-2 py-0.5 rounded border border-emerald-200">SERP Orgânica Completa</span>
+            </div>
+            ${renderOrganicTermsList(terms, 'init-' + c.id)}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSeoDetails(seo) {
+      const organicTerms = (seo.top_organic_terms || '').split(',').map(t => t.trim()).filter(Boolean);
+      return `
+        <div class="space-y-3 pt-2 text-xs">
+          <!-- Status Bar -->
+          <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-[11px]">
+            <span class="flex items-center gap-1.5 text-emerald-700 font-semibold">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Conexão Ativa (${seo.http_status} OK)
+            </span>
+            <span class="text-slate-500">Resposta: <b class="text-slate-800">${seo.response_time_ms}ms</b></span>
+            <span class="text-slate-500">Data: ${seo.analyzed_at}</span>
+          </div>
+
+          <!-- Title & Meta Description -->
+          <div class="space-y-1.5 bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <div class="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">Title Tag (SERP Google):</div>
+            <div class="text-xs font-semibold text-slate-900">${seo.title}</div>
+            <div class="text-[11px] text-slate-500 font-semibold uppercase tracking-wider pt-1.5">Meta Description:</div>
+            <div class="text-xs text-slate-600 leading-relaxed">${seo.meta_description}</div>
+          </div>
+
+          <!-- Headings H1 / H2 -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1.5">
+              <div class="text-[11px] text-emerald-800 font-semibold uppercase tracking-wider flex items-center gap-1">
+                <i data-lucide="heading-1" class="w-3.5 h-3.5 text-emerald-600"></i> H1 Principal do Site:
+              </div>
+              <ul class="list-disc list-inside text-slate-800 text-xs space-y-1">
+                ${(seo.h1_headings || []).map(h => `<li>${h}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1.5">
+              <div class="text-[11px] text-sky-800 font-semibold uppercase tracking-wider flex items-center gap-1">
+                <i data-lucide="heading-2" class="w-3.5 h-3.5 text-sky-600"></i> H2 Subtítulos (Ganchos de Venda):
+              </div>
+              <ul class="list-disc list-inside text-slate-700 text-[11px] space-y-1">
+                ${(seo.h2_headings || []).slice(0, 3).map(h => `<li>${h}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+
+          <!-- Density & Backlinks Summary -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="text-slate-500 text-[11px] font-semibold uppercase tracking-wider">Palavras-Chave Frequentes no HTML</div>
+              <div class="flex flex-wrap gap-1 mt-1.5">
+                ${Object.entries(seo.top_keywords_density || {}).slice(0, 6).map(([k, v]) => `
+                  <span class="px-1.5 py-0.5 rounded bg-white text-emerald-800 text-[10px] border border-slate-200 shadow-xs">${k}: <b>${v}</b></span>
+                `).join('')}
+              </div>
+            </div>
+
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <div class="text-slate-500 text-[11px] font-semibold uppercase tracking-wider">Autoridade & Backlinks</div>
+              <div class="text-sm font-bold text-slate-900 mt-1">${seo.estimated_backlinks || '~3.500 backlinks'}</div>
+              <div class="text-[10px] text-slate-500 mt-1">Palavras indexadas: ${seo.estimated_keywords_count || '~1.200'}</div>
+            </div>
+          </div>
+
+          <!-- FULL LIST OF ORGANIC TERMS COM DESTAQUE MÁXIMO -->
+          <div class="p-4 bg-emerald-50/60 rounded-xl border border-emerald-200 space-y-3 shadow-xs">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="text-emerald-950 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="trending-up" class="w-4 h-4 text-emerald-600"></i>
+                <span>Termos de Maior Tráfego Orgânico no Google (${organicTerms.length} termos catalogados):</span>
+              </div>
+              <span class="text-[10px] text-emerald-800 font-mono font-bold bg-white px-2 py-0.5 rounded border border-emerald-200">SERP Orgânica Completa</span>
+            </div>
+            ${renderOrganicTermsList(organicTerms, 'seo-' + seo.competitor_id)}
+          </div>
+
+        </div>
+      `;
+    }
+
+    async function runSeoAnalysis(competitorId) {
+      const btn = document.getElementById(`btn-seo-${competitorId}`);
+      const container = document.getElementById(`seo-result-${competitorId}`);
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i> <span>Acessando Website...</span>`;
+        lucide.createIcons();
+      }
+
+      try {
+        const res = await fetch(`/api/competitor/${competitorId}/analyze-seo`, { method: 'POST' });
+        const data = await res.json();
+        
+        // Update local object
+        const comp = allCompetitors.find(c => c.id === competitorId);
+        if (comp) {
+          comp.seo_cached_result = JSON.stringify(data);
+        }
+
+        container.innerHTML = renderSeoDetails(data);
+        lucide.createIcons();
+      } catch (err) {
+        container.innerHTML = `<div class="p-3 rounded-lg bg-rose-50 text-rose-700 text-xs border border-rose-200">Erro ao analisar SEO: ${err}</div>`;
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = `<i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-emerald-600"></i> <span>Reanalisar SEO Agora</span>`;
+          lucide.createIcons();
+        }
+      }
+    }
+
+    async function syncSerpApiAds(competitorId) {
+      const btn = document.getElementById(`btn-sync-serpapi-${competitorId}`);
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `<i data-lucide="loader-2" class="w-3.5 h-3.5 animate-spin"></i> <span>Consultando SerpApi...</span>`;
+        lucide.createIcons();
+      }
+      try {
+        const res = await fetch(`/api/competitor/${competitorId}/sync-serpapi-ads`, { method: 'POST' });
+        const data = await res.json();
+        if (data.success) {
+          showToast(`⚡ Sucesso! ${data.creatives_saved} criativos salvos (Total no Google: ${data.total_results})`);
+          // Reload competitors and google ads
+          const [compRes, adsRes] = await Promise.all([
+            fetch('/api/competitors'),
+            fetch('/api/google-ads')
+          ]);
+          allCompetitors = await compRes.json();
+          allGoogleAds = await adsRes.json();
+          externalCompetitors = allCompetitors.filter(c => c.id !== 'mundo_revalida' && !c.is_our_brand);
+          externalCompetitors.sort((a, b) => (b.domain_reputation_score || 0) - (a.domain_reputation_score || 0));
+          renderCompetitorCards(filterCompetitorsList(externalCompetitors));
+        } else {
+          showToast(data.error || 'Erro ao sincronizar com SerpApi.');
+        }
+      } catch (err) {
+        showToast(`Erro na requisição: ${err}`);
+      } finally {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = `<i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-emerald-600"></i> <span>⚡ Sincronizar via SerpApi</span>`;
+          lucide.createIcons();
+        }
+      }
+    }
+
+    function toggleExpand(competitorId) {
+      if (expandedCompetitors.has(competitorId)) {
+        expandedCompetitors.delete(competitorId);
+      } else {
+        expandedCompetitors.add(competitorId);
+      }
+      renderCompetitorCards(filterCompetitorsList(externalCompetitors));
+    }
+
+    function filterStatus(status) {
+      activeFilter = status;
+      document.querySelectorAll('.status-pill').forEach(btn => {
+        btn.classList.remove('bg-emerald-600', 'text-white', 'shadow-sm');
+        btn.classList.add('bg-slate-100', 'text-slate-700', 'border-slate-200');
+      });
+
+      const activeBtn = document.getElementById(`filter-pill-${status}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-100', 'text-slate-700', 'border-slate-200');
+        activeBtn.classList.add('bg-emerald-600', 'text-white', 'shadow-sm');
+      }
+
+      filterCompetitors();
+    }
+
+    function filterCompetitors() {
+      const filtered = filterCompetitorsList(externalCompetitors);
+      renderCompetitorCards(filtered);
+    }
+
+    function filterCompetitorsList(list) {
+      const q = document.getElementById('competitor-search-input').value.toLowerCase().trim();
+      return list.filter(c => {
+        // Status filter
+        if (activeFilter === 'with_ads' && c.has_google_ads !== 1) return false;
+        if (activeFilter === 'no_ads' && c.has_google_ads === 1) return false;
+
+        // Search query filter
+        if (q) {
+          const matchName = (c.name || '').toLowerCase().includes(q);
+          const matchDomain = (c.domain || '').toLowerCase().includes(q);
+          const matchRoot = (c.root_domain || '').toLowerCase().includes(q);
+          const matchLegal = (c.legal_name || '').toLowerCase().includes(q);
+          const matchCnpj = (c.cnpj || '').toLowerCase().includes(q);
+          const matchBio = (c.bio_links || '').toLowerCase().includes(q);
+          const matchFront = (c.attack_front || '').toLowerCase().includes(q);
+          const matchKeywords = (c.google_ads_keywords || '').toLowerCase().includes(q);
+          const matchPlacements = (c.google_ads_placements || '').toLowerCase().includes(q);
+          const matchUserTerms = (c.user_search_terms || '').toLowerCase().includes(q);
+          const matchOtherThemes = (c.other_themes_description || '').toLowerCase().includes(q);
+
+          if (!matchName && !matchDomain && !matchRoot && !matchLegal && !matchCnpj && !matchBio && !matchFront && !matchKeywords && !matchPlacements && !matchUserTerms && !matchOtherThemes) {
+            return false;
+          }
+        }
+        return true;
+      });
+    }
+
+    function showToast(msg) {
+      let toast = document.getElementById('global-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'global-toast';
+        toast.className = 'fixed bottom-5 right-5 z-50 px-4 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold text-xs shadow-xl flex items-center gap-2 transform transition-all duration-300 translate-y-10 opacity-0 pointer-events-none';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4"></i> <span>${msg}</span>`;
+      lucide.createIcons();
+      toast.classList.remove('translate-y-10', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-10', 'opacity-0', 'pointer-events-none');
+      }, 2500);
+    }
+
+    function copyToClipboard(text, label = "Copiado para a área de transferência!") {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(label);
+      }).catch(err => {
+        console.error('Falha ao copiar:', err);
+        showToast("Erro ao copiar.");
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', loadCompetitors);
+  </script>
+</body>
+</html>

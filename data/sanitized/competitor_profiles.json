@@ -1,0 +1,754 @@
+{
+  "version": "2.0.0",
+  "author": "Lagana Flow",
+  "generated_at": "2026-09-21T06:09:39.165519+00:00",
+  "total_profiles": 16,
+  "profiles": [
+    {
+      "competitor_id": "mundo_revalida",
+      "platform": "instagram",
+      "username": "mundorevalida",
+      "full_name": "Mundo Revalida (NÓS)",
+      "bio_text": "",
+      "external_url": "https://mundorevalida.com.br",
+      "followers_count": 65200,
+      "posts_count": 6,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "Questões de Dengue no Revalida INEP"
+        },
+        {
+          "type": "reels",
+          "topic": "Questões de Preventiva do Revalida: O SUS!"
+        },
+        {
+          "type": "reels",
+          "topic": "Como fazer a prova no laço?"
+        },
+        {
+          "type": "static",
+          "topic": "Respondendo uma questão de ginecologia e obstetrícia"
+        },
+        {
+          "type": "static",
+          "topic": "Obstrução arterial"
+        },
+        {
+          "type": "static",
+          "topic": "Prevenção Quaternária"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "baseline_reference",
+      "tier": "Baseline de Referência / Líder Nicho",
+      "previous_followers_count": 54000,
+      "followers_delta": 11200,
+      "growth_rate_pct": 20.74,
+      "youtube_url": "https://www.youtube.com/@mundorevalida",
+      "website_url": "https://mundorevalida.com.br",
+      "instagram_profile_url": "https://www.instagram.com/mundorevalida/",
+      "focus_summary": "",
+      "practical_exam_city": "São Paulo (SP)",
+      "pricing_range": "R$ 3.000 a R$ 6.500",
+      "media_spend_tier": "Mid Spender (Alta Eficiência)",
+      "has_first_phase": true,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "hardwork_revalida",
+      "platform": "instagram",
+      "username": "hardwork.revalida",
+      "full_name": "Hardwork Revalida / Hardwork Medicina",
+      "bio_text": "Método focado em questões, provas 2026/2027, caixas de perguntas, lives de corte",
+      "external_url": "https://home.hardworkmedicina.com.br",
+      "followers_count": 43100,
+      "posts_count": 4,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "Falando sobre um assunto em alta: Cálcio na gestação previne pré-eclâmpsia"
+        },
+        {
+          "type": "reels",
+          "topic": "Sobre uma live que vão fazer"
+        },
+        {
+          "type": "reels",
+          "topic": "Sobre nota de corte ser 92 pontos"
+        },
+        {
+          "type": "reels",
+          "topic": "Formato respondendo caixinha de perguntas"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 1 - Grande Concorrente Especialista",
+      "previous_followers_count": 37500,
+      "followers_delta": 5600,
+      "growth_rate_pct": 14.93,
+      "youtube_url": "https://www.youtube.com/@HardworkMedicina",
+      "website_url": "https://home.hardworkmedicina.com.br",
+      "instagram_profile_url": "https://www.instagram.com/hardwork.revalida/",
+      "focus_summary": "Método focado em questões, provas 2026/2027, caixas de perguntas, lives de corte",
+      "practical_exam_city": "Online / Nacional",
+      "pricing_range": "R$ 1.490 a R$ 3.590",
+      "media_spend_tier": "Mid Spender",
+      "has_first_phase": true,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "estrategia_med",
+      "platform": "instagram",
+      "username": "estrategiamed",
+      "full_name": "Estratégia MED",
+      "bio_text": "Aulas grátis, pegadinhas de banca, podcast/cortes, apelo financeiro ('ganhar mais de 12k')",
+      "external_url": "https://med.estrategia.com",
+      "followers_count": 280000,
+      "posts_count": 6,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "Falando sobre um assunto em alta: O Senado Federal ter aprovado, o projeto de lei que autoriza o parcelamento do período anual de descanso para profissionais em programas de residência na área da saúde"
+        },
+        {
+          "type": "reels",
+          "topic": "Corte de uma entrevista"
+        },
+        {
+          "type": "reels",
+          "topic": "Meme"
+        },
+        {
+          "type": "static",
+          "topic": "Prova social, aluna aprovado em 1 lugar"
+        },
+        {
+          "type": "static",
+          "topic": "Prova social, sobre os alunos"
+        },
+        {
+          "type": "static",
+          "topic": "Chamada para aula ao vivo"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 1 - Líder Geral Multiprova",
+      "previous_followers_count": 217500,
+      "followers_delta": 62500,
+      "growth_rate_pct": 28.74,
+      "youtube_url": "https://www.youtube.com/@EstrategiaMed",
+      "website_url": "https://med.estrategia.com",
+      "instagram_profile_url": "https://www.instagram.com/estrategiamed/",
+      "focus_summary": "Aulas grátis, pegadinhas de banca, podcast/cortes, apelo financeiro ('ganhar mais de 12k')",
+      "practical_exam_city": "São Paulo (SP) / Nacional",
+      "pricing_range": "R$ 1.500 a R$ 7.500+",
+      "media_spend_tier": "Heavy Spender (Corporativo)",
+      "has_first_phase": true,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "medtwins",
+      "platform": "instagram",
+      "username": "medtwinsrevalida",
+      "full_name": "Medtwins Revalida",
+      "bio_text": "Intensivão M60, grupos WhatsApp, mentorias, inteligência emocional",
+      "external_url": "https://medtwins.com.br",
+      "followers_count": 32200,
+      "posts_count": 4,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "Falando sobre um tema da prova"
+        },
+        {
+          "type": "static",
+          "topic": "Gabarito"
+        },
+        {
+          "type": "static",
+          "topic": "sobre a nota de corte"
+        },
+        {
+          "type": "static",
+          "topic": "Chamada para aula ao vivo"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 2 - Forte no Revalida",
+      "previous_followers_count": 26400,
+      "followers_delta": 5800,
+      "growth_rate_pct": 21.97,
+      "youtube_url": "https://www.youtube.com/@medtwinsrevalida",
+      "website_url": "https://medtwins.com.br",
+      "instagram_profile_url": "https://www.instagram.com/medtwinsrevalida/",
+      "focus_summary": "Intensivão M60, grupos WhatsApp, mentorias, inteligência emocional",
+      "practical_exam_city": "Online / Presencial Pontual",
+      "pricing_range": "R$ 1.497 a R$ 6.000",
+      "media_spend_tier": "Mid Spender (Lançamentos)",
+      "has_first_phase": true,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "medcel",
+      "platform": "instagram",
+      "username": "medcel",
+      "full_name": "Medcel",
+      "bio_text": "Plataforma de estudos, cursos por R$ 0,00 (degustação/isca), organização de rotina",
+      "external_url": "https://www.medcel.com.br",
+      "followers_count": 125000,
+      "posts_count": 5,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "Falando sobre como organizar o dia e estuda"
+        },
+        {
+          "type": "reels",
+          "topic": "Sobre como a plataforma Medcil"
+        },
+        {
+          "type": "reels",
+          "topic": "Assunto abordado na prova"
+        },
+        {
+          "type": "static",
+          "topic": "Meme que gera identificação"
+        },
+        {
+          "type": "static",
+          "topic": "“Erros que você comete”"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 1 - Grande Player Corporativo",
+      "previous_followers_count": 44400,
+      "followers_delta": 80600,
+      "growth_rate_pct": 181.53,
+      "youtube_url": "https://www.youtube.com/@medcel",
+      "website_url": "https://www.medcel.com.br",
+      "instagram_profile_url": "https://www.instagram.com/medcel/",
+      "focus_summary": "Plataforma de estudos, cursos por R$ 0,00 (degustação/isca), organização de rotina",
+      "practical_exam_city": "Nacional / Online",
+      "pricing_range": "R$ 0,00 (Isca) a R$ 5.500",
+      "media_spend_tier": "Heavy Spender (Captação em Massa)",
+      "has_first_phase": true,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "medgrupo_revalida",
+      "platform": "instagram",
+      "username": "medgruporevalida",
+      "full_name": "Medgrupo Revalida",
+      "bio_text": "CPMED Revalida, 1ª e 2ª fase, autoridade histórica em provas médicas",
+      "external_url": "https://medgrupo.com.br",
+      "followers_count": 17300,
+      "posts_count": 6,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "Meme que gera identificação"
+        },
+        {
+          "type": "reels",
+          "topic": "Emocionante sobre 2026 ser um ano para fazer a prova"
+        },
+        {
+          "type": "reels",
+          "topic": "Explicando sobre a mentoria"
+        },
+        {
+          "type": "static",
+          "topic": "prepare-se para a prova"
+        },
+        {
+          "type": "static",
+          "topic": "Explicando sobre o Revalida"
+        },
+        {
+          "type": "static",
+          "topic": "lista de aprovado do curso"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 1 - Tradicional de Mercado",
+      "previous_followers_count": 17300,
+      "followers_delta": 0,
+      "growth_rate_pct": 0.0,
+      "youtube_url": "https://www.youtube.com/@medgrupo",
+      "website_url": "https://medgrupo.com.br",
+      "instagram_profile_url": "https://www.instagram.com/medgruporevalida/",
+      "focus_summary": "CPMED Revalida, 1ª e 2ª fase, autoridade histórica em provas médicas",
+      "practical_exam_city": "Rio de Janeiro / SP / Presencial CPMED",
+      "pricing_range": "R$ 6.000 a R$ 10.000+",
+      "media_spend_tier": "Orgânico / Impulsionamento Simples",
+      "has_first_phase": true,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "medcof_revalida",
+      "platform": "instagram",
+      "username": "medcof.revalida",
+      "full_name": "MedCof Revalida",
+      "bio_text": "Correção de provas anteriores, debate de questões, lives e sorteios",
+      "external_url": "https://revalida.grupomedcof.com.br",
+      "followers_count": 21800,
+      "posts_count": 6,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "debate sobre uma questão da prova de 2022"
+        },
+        {
+          "type": "reels",
+          "topic": "sorteio"
+        },
+        {
+          "type": "reels",
+          "topic": "meme sobre os calouros"
+        },
+        {
+          "type": "static",
+          "topic": "sobre as insrições da primeira etapa"
+        },
+        {
+          "type": "static",
+          "topic": "aula ao vivo"
+        },
+        {
+          "type": "static",
+          "topic": "sorteio"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 2 - Em Alta Crescimento",
+      "previous_followers_count": 14200,
+      "followers_delta": 7600,
+      "growth_rate_pct": 53.52,
+      "youtube_url": "https://www.youtube.com/@grupomedcof",
+      "website_url": "https://revalida.grupomedcof.com.br",
+      "instagram_profile_url": "https://www.instagram.com/medcof.revalida/",
+      "focus_summary": "Correção de provas anteriores, debate de questões, lives e sorteios",
+      "practical_exam_city": "São Paulo (SP) / Online",
+      "pricing_range": "R$ 3.500 a R$ 5.000",
+      "media_spend_tier": "Mid Spender",
+      "has_first_phase": true,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "bastidores_revalida",
+      "platform": "instagram",
+      "username": "bastidoresdorevalida",
+      "full_name": "Bastidores do Revalida (Dr. Adelicio Galvão)",
+      "bio_text": "Simulado gratuito, desmistificação da prova, lives de questões, mentorias 1ª e 2ª fase",
+      "external_url": "https://bastidoresdorevalida.com.br",
+      "followers_count": 31800,
+      "posts_count": 6,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "simulado gratuito"
+        },
+        {
+          "type": "reels",
+          "topic": "desconto de aniversário"
+        },
+        {
+          "type": "reels",
+          "topic": "Live sobre questões da prova"
+        },
+        {
+          "type": "static",
+          "topic": "parabéns para o SEO"
+        },
+        {
+          "type": "static",
+          "topic": "nota de corte"
+        },
+        {
+          "type": "static",
+          "topic": "maiores mentiras sobre revalida"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 2 - Especialista de Nicho",
+      "previous_followers_count": 25800,
+      "followers_delta": 6000,
+      "growth_rate_pct": 23.26,
+      "youtube_url": "https://www.youtube.com/@bastidoresdorevalida",
+      "website_url": "https://bastidoresdorevalida.com.br",
+      "instagram_profile_url": "https://www.instagram.com/bastidoresdorevalida/",
+      "focus_summary": "Simulado gratuito, desmistificação da prova, lives de questões, mentorias 1ª e 2ª fase",
+      "practical_exam_city": "Online / Workshop Itinerante",
+      "pricing_range": "R$ 800 a R$ 4.500",
+      "media_spend_tier": "Mid Spender",
+      "has_first_phase": true,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "aristo_revalida",
+      "platform": "instagram",
+      "username": "aristorevalida",
+      "full_name": "Aristo Revalida",
+      "bio_text": "Cronograma com IA, repetição espaçada, sem tráfego pago ativo",
+      "external_url": "https://aristo.com.br",
+      "followers_count": 9700,
+      "posts_count": 6,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "sobre a primeira etapa do revalida"
+        },
+        {
+          "type": "reels",
+          "topic": "depoimento de aluno"
+        },
+        {
+          "type": "reels",
+          "topic": "sobre questões iguais do curso e da prova"
+        },
+        {
+          "type": "static",
+          "topic": "edital da segunda etapa"
+        },
+        {
+          "type": "static",
+          "topic": "questão da prova"
+        },
+        {
+          "type": "static",
+          "topic": "faltam poucos meses para a primeira etapa"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 3 - Metodologia IA / Repetição",
+      "previous_followers_count": 9800,
+      "followers_delta": -100,
+      "growth_rate_pct": -1.02,
+      "youtube_url": "https://www.youtube.com/@AristoRevalida",
+      "website_url": "https://aristo.com.br",
+      "instagram_profile_url": "https://www.instagram.com/aristorevalida/",
+      "focus_summary": "Cronograma com IA, repetição espaçada, sem tráfego pago ativo",
+      "practical_exam_city": "Online",
+      "pricing_range": "R$ 2.500 a R$ 4.000",
+      "media_spend_tier": "100% Orgânico (Retração)",
+      "has_first_phase": true,
+      "has_second_phase_practical": false,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "pense_revalida",
+      "platform": "instagram",
+      "username": "penserevalida",
+      "full_name": "Pense Revalida",
+      "bio_text": "Checklists para 2ª fase, aulas ao vivo de resolução de estações práticas",
+      "external_url": "https://penserevalida.com.br",
+      "followers_count": 19300,
+      "posts_count": 6,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "Aula ao vivo"
+        },
+        {
+          "type": "reels",
+          "topic": "Questão da prova"
+        },
+        {
+          "type": "reels",
+          "topic": "motivacional"
+        },
+        {
+          "type": "static",
+          "topic": "nota de corte"
+        },
+        {
+          "type": "static",
+          "topic": "questão da prova"
+        },
+        {
+          "type": "static",
+          "topic": "meme de identificação"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 3 - Prova Prática & Checklists",
+      "previous_followers_count": 14900,
+      "followers_delta": 4400,
+      "growth_rate_pct": 29.53,
+      "youtube_url": "https://www.youtube.com/@penserevalida",
+      "website_url": "https://penserevalida.com.br",
+      "instagram_profile_url": "https://www.instagram.com/penserevalida/",
+      "focus_summary": "Checklists para 2ª fase, aulas ao vivo de resolução de estações práticas",
+      "practical_exam_city": "Online",
+      "pricing_range": "R$ 1.200 a R$ 2.500",
+      "media_spend_tier": "100% Orgânico",
+      "has_first_phase": false,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "revalideii",
+      "platform": "instagram",
+      "username": "revalideii",
+      "full_name": "Revalideii (Escola da Prática)",
+      "bio_text": "Cartões de estudo físicos, aplicativo Simula Revalida, turmas presenciais",
+      "external_url": "https://revalideii.com.br",
+      "followers_count": 18100,
+      "posts_count": 6,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "questões da prova"
+        },
+        {
+          "type": "reels",
+          "topic": "Chamada para turma presencial"
+        },
+        {
+          "type": "reels",
+          "topic": "sobre o edital"
+        },
+        {
+          "type": "static",
+          "topic": "Curso presencial"
+        },
+        {
+          "type": "static",
+          "topic": "mentorias"
+        },
+        {
+          "type": "static",
+          "topic": "você não precisa enfrentar sozinho"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 3 - Escola da Prática & Materiais",
+      "previous_followers_count": 18500,
+      "followers_delta": -400,
+      "growth_rate_pct": -2.16,
+      "youtube_url": "https://www.youtube.com/@revalideii6331",
+      "website_url": "https://revalideii.com.br",
+      "instagram_profile_url": "https://www.instagram.com/revalideii/",
+      "focus_summary": "Cartões de estudo físicos, aplicativo Simula Revalida, turmas presenciais",
+      "practical_exam_city": "Online / Presencial",
+      "pricing_range": "R$ 350 a R$ 4.200",
+      "media_spend_tier": "100% Orgânico (Retração)",
+      "has_first_phase": true,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": true
+    },
+    {
+      "competitor_id": "revmed_mentoria",
+      "platform": "instagram",
+      "username": "revmedmentoria",
+      "full_name": "Revmed Mentoria",
+      "bio_text": "Cursos presenciais em Foz do Iguaçu (fronteira), simulação de estações",
+      "external_url": "https://revmed.com.br",
+      "followers_count": 14900,
+      "posts_count": 5,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "corte da aula presencial"
+        },
+        {
+          "type": "reels",
+          "topic": "depoimento"
+        },
+        {
+          "type": "reels",
+          "topic": "chamada para o curso presencial em foz do iguaçu"
+        },
+        {
+          "type": "static",
+          "topic": "Curso presencial"
+        },
+        {
+          "type": "static",
+          "topic": "Live"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 3 - Cursos Presenciais & Mentoria Fronteira",
+      "previous_followers_count": 14400,
+      "followers_delta": 500,
+      "growth_rate_pct": 3.47,
+      "youtube_url": "",
+      "website_url": "https://revmed.com.br",
+      "instagram_profile_url": "https://www.instagram.com/revmedmentoria/",
+      "focus_summary": "Cursos presenciais em Foz do Iguaçu (fronteira), simulação de estações",
+      "practical_exam_city": "Foz do Iguaçu (PR)",
+      "pricing_range": "R$ 3.500 a R$ 5.500",
+      "media_spend_tier": "Hiper-Local Presencial",
+      "has_first_phase": false,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "revalida360",
+      "platform": "instagram",
+      "username": "revalida360",
+      "full_name": "Revalida 360",
+      "bio_text": "Imersão presencial intensiva de 3 dias para a prova prática em Foz do Iguaçu",
+      "external_url": "https://revalida360.com.br",
+      "followers_count": 4400,
+      "posts_count": 5,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "corte da aula presencial"
+        },
+        {
+          "type": "reels",
+          "topic": "depoimento"
+        },
+        {
+          "type": "reels",
+          "topic": "chamada para o curso presencial em foz do iguaçu"
+        },
+        {
+          "type": "static",
+          "topic": "Curso presencial"
+        },
+        {
+          "type": "static",
+          "topic": "Live"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 4 - Hiperaceleração Presencial Foz",
+      "previous_followers_count": 1500,
+      "followers_delta": 2900,
+      "growth_rate_pct": 193.33,
+      "youtube_url": "",
+      "website_url": "https://revalida360.com.br",
+      "instagram_profile_url": "https://www.instagram.com/revalida360/",
+      "focus_summary": "Imersão presencial intensiva de 3 dias para a prova prática em Foz do Iguaçu",
+      "practical_exam_city": "Foz do Iguaçu (PR)",
+      "pricing_range": "R$ 3.500 a R$ 5.000",
+      "media_spend_tier": "Hiper-Local Presencial (+193%)",
+      "has_first_phase": false,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "alphamed_revalida",
+      "platform": "instagram",
+      "username": "alphamedrevalida",
+      "full_name": "AlphaMed Revalida",
+      "bio_text": "Checklists de habilidades clínicas, estações práticas",
+      "external_url": "https://alphamedrevalida.com.br",
+      "followers_count": 9700,
+      "posts_count": 4,
+      "recent_posts": [
+        {
+          "type": "reels",
+          "topic": "dica pro prova"
+        },
+        {
+          "type": "reels",
+          "topic": "O que eu faria se tivesse que fazer a prova novamente"
+        },
+        {
+          "type": "reels",
+          "topic": "Você sabia: sobre a inscrição"
+        },
+        {
+          "type": "static",
+          "topic": "Curso presencial"
+        }
+      ],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "active",
+      "tier": "Tier 4 - Presencial & Habilidades Clínicas",
+      "previous_followers_count": 7700,
+      "followers_delta": 2000,
+      "growth_rate_pct": 25.97,
+      "youtube_url": "",
+      "website_url": "https://alphamedrevalida.com.br",
+      "instagram_profile_url": "https://www.instagram.com/alphamedrevalida/",
+      "focus_summary": "Checklists de habilidades clínicas, estações práticas",
+      "practical_exam_city": "Presencial / Regional",
+      "pricing_range": "R$ 3.000 a R$ 4.500",
+      "media_spend_tier": "Hiper-Local Presencial",
+      "has_first_phase": false,
+      "has_second_phase_practical": true,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "revalidando",
+      "platform": "instagram",
+      "username": "revalidando",
+      "full_name": "Revalidando",
+      "bio_text": "Sem postagens desde 2025",
+      "external_url": null,
+      "followers_count": 24100,
+      "posts_count": 0,
+      "recent_posts": [],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "inactive_2025",
+      "tier": "Inativo / Abandonado",
+      "previous_followers_count": 25100,
+      "followers_delta": -1000,
+      "growth_rate_pct": -3.98,
+      "youtube_url": "",
+      "website_url": "",
+      "instagram_profile_url": "https://www.instagram.com/revalidando/",
+      "focus_summary": "Sem postagens desde 2025",
+      "practical_exam_city": "N/A",
+      "pricing_range": "N/A",
+      "media_spend_tier": "Zumbi (Sem atividade)",
+      "has_first_phase": true,
+      "has_second_phase_practical": false,
+      "has_flashcards_physical": false
+    },
+    {
+      "competitor_id": "eumedicorevalida",
+      "platform": "instagram",
+      "username": "eumedicorevalida",
+      "full_name": "Eu Médico Revalida",
+      "bio_text": "Sem postagens desde 2025",
+      "external_url": null,
+      "followers_count": 5700,
+      "posts_count": 0,
+      "recent_posts": [],
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "status": "inactive_2025",
+      "tier": "Inativo / Abandonado",
+      "previous_followers_count": 5800,
+      "followers_delta": -100,
+      "growth_rate_pct": -1.72,
+      "youtube_url": "",
+      "website_url": "",
+      "instagram_profile_url": "https://www.instagram.com/eumedicorevalida/",
+      "focus_summary": "Sem postagens desde 2025",
+      "practical_exam_city": "N/A",
+      "pricing_range": "N/A",
+      "media_spend_tier": "Zumbi (Sem atividade)",
+      "has_first_phase": true,
+      "has_second_phase_practical": false,
+      "has_flashcards_physical": false
+    }
+  ]
+}

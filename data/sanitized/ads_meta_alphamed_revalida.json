@@ -1,0 +1,26 @@
+{
+  "competitor_id": "alphamed_revalida",
+  "competitor_name": "AlphaMed Revalida",
+  "platform": "meta",
+  "total_ads_found": 1,
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+  "ads": [
+    {
+      "competitor_id": "alphamed_revalida",
+      "platform": "meta",
+      "ad_id": "ad_alphamed_revalida_01",
+      "headline": "Sobre o curso presencial",
+      "body_text": "Campanha ativa de Meta Ads para AlphaMed Revalida: Sobre o curso presencial",
+      "call_to_action": "Saiba Mais",
+      "landing_page_url": "https://alphamedrevalida.com.br",
+      "media_url": null,
+      "start_date": "2026-04-01T00:00:00Z",
+      "is_active": true,
+      "scraped_at": "2026-09-21T06:09:39.165519+00:00",
+      "competitor_name": "AlphaMed Revalida",
+      "hook_category": "prova_pratica_presencial",
+      "creative_format": "estatico",
+      "spend_tier": "Hiper-Local Presencial"
+    }
+  ]
+}

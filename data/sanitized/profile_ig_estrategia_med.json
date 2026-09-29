@@ -1,0 +1,37 @@
+{
+  "competitor_id": "estrategia_med",
+  "platform": "instagram",
+  "username": "estrategiamed",
+  "full_name": "Estratégia MED",
+  "bio_text": "Aulas grátis, pegadinhas de banca, podcast/cortes, apelo financeiro ('ganhar mais de 12k')",
+  "external_url": "https://med.estrategia.com",
+  "followers_count": 280000,
+  "posts_count": 6,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "Falando sobre um assunto em alta: O Senado Federal ter aprovado, o projeto de lei que autoriza o parcelamento do período anual de descanso para profissionais em programas de residência na área da saúde"
+    },
+    {
+      "type": "reels",
+      "topic": "Corte de uma entrevista"
+    },
+    {
+      "type": "reels",
+      "topic": "Meme"
+    },
+    {
+      "type": "static",
+      "topic": "Prova social, aluna aprovado em 1 lugar"
+    },
+    {
+      "type": "static",
+      "topic": "Prova social, sobre os alunos"
+    },
+    {
+      "type": "static",
+      "topic": "Chamada para aula ao vivo"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}

@@ -1,0 +1,158 @@
+{
+  "version": "2.0.0",
+  "author": "Lagana Flow",
+  "generated_at": "2026-09-21T06:09:39.165519+00:00",
+  "metrics": {
+    "total_tracked_players": 16,
+    "active_players_count": 14,
+    "inactive_players_count": 2,
+    "total_audience_tracked": 692500,
+    "total_net_audience_growth": 188600,
+    "our_brand": {
+      "id": "mundo_revalida",
+      "followers": 65200,
+      "followers_delta": 11200,
+      "growth_pct": 20.74,
+      "market_share_in_niche": 22.68,
+      "rank_in_dedicated_revalida": 1
+    },
+    "fastest_growing_player": {
+      "id": "revalida360",
+      "name": "Revalida 360",
+      "growth_pct": 193.33,
+      "city": "Foz do Iguaçu (PR)"
+    },
+    "fastest_growing_corporate": {
+      "id": "medcel",
+      "name": "Medcel",
+      "growth_pct": 181.53
+    }
+  },
+  "hook_distribution": {
+    "prova_social_depoimento": 4,
+    "medo_clareza": 2,
+    "prova_pratica_presencial": 5,
+    "isca_gratuita": 4,
+    "antecipacao_funil": 2,
+    "desmistificacao_banca": 3,
+    "apelo_financeiro": 1,
+    "comunidade_whatsapp": 2,
+    "outro": 6
+  },
+  "top_audience_ranking": [
+    {
+      "rank": 1,
+      "id": "estrategia_med",
+      "name": "Estratégia MED",
+      "followers": 280000,
+      "delta": 62500,
+      "growth_pct": 28.74
+    },
+    {
+      "rank": 2,
+      "id": "medcel",
+      "name": "Medcel",
+      "followers": 125000,
+      "delta": 80600,
+      "growth_pct": 181.53
+    },
+    {
+      "rank": 3,
+      "id": "mundo_revalida",
+      "name": "Mundo Revalida (NÓS)",
+      "followers": 65200,
+      "delta": 11200,
+      "growth_pct": 20.74
+    },
+    {
+      "rank": 4,
+      "id": "hardwork_revalida",
+      "name": "Hardwork Revalida / Hardwork Medicina",
+      "followers": 43100,
+      "delta": 5600,
+      "growth_pct": 14.93
+    },
+    {
+      "rank": 5,
+      "id": "medtwins",
+      "name": "Medtwins Revalida",
+      "followers": 32200,
+      "delta": 5800,
+      "growth_pct": 21.97
+    },
+    {
+      "rank": 6,
+      "id": "bastidores_revalida",
+      "name": "Bastidores do Revalida (Dr. Adelicio Galvão)",
+      "followers": 31800,
+      "delta": 6000,
+      "growth_pct": 23.26
+    },
+    {
+      "rank": 7,
+      "id": "medcof_revalida",
+      "name": "MedCof Revalida",
+      "followers": 21800,
+      "delta": 7600,
+      "growth_pct": 53.52
+    }
+  ],
+  "top_growth_velocity_ranking": [
+    {
+      "rank": 1,
+      "id": "revalida360",
+      "name": "Revalida 360",
+      "growth_pct": 193.33,
+      "delta": 2900,
+      "followers": 4400
+    },
+    {
+      "rank": 2,
+      "id": "medcel",
+      "name": "Medcel",
+      "growth_pct": 181.53,
+      "delta": 80600,
+      "followers": 125000
+    },
+    {
+      "rank": 3,
+      "id": "medcof_revalida",
+      "name": "MedCof Revalida",
+      "growth_pct": 53.52,
+      "delta": 7600,
+      "followers": 21800
+    },
+    {
+      "rank": 4,
+      "id": "pense_revalida",
+      "name": "Pense Revalida",
+      "growth_pct": 29.53,
+      "delta": 4400,
+      "followers": 19300
+    },
+    {
+      "rank": 5,
+      "id": "estrategia_med",
+      "name": "Estratégia MED",
+      "growth_pct": 28.74,
+      "delta": 62500,
+      "followers": 280000
+    },
+    {
+      "rank": 6,
+      "id": "alphamed_revalida",
+      "name": "AlphaMed Revalida",
+      "growth_pct": 25.97,
+      "delta": 2000,
+      "followers": 9700
+    },
+    {
+      "rank": 7,
+      "id": "bastidores_revalida",
+      "name": "Bastidores do Revalida (Dr. Adelicio Galvão)",
+      "growth_pct": 23.26,
+      "delta": 6000,
+      "followers": 31800
+    }
+  ]
+}

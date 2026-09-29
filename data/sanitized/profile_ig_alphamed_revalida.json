@@ -1,0 +1,29 @@
+{
+  "competitor_id": "alphamed_revalida",
+  "platform": "instagram",
+  "username": "alphamedrevalida",
+  "full_name": "AlphaMed Revalida",
+  "bio_text": "Checklists de habilidades clínicas, estações práticas",
+  "external_url": "https://alphamedrevalida.com.br",
+  "followers_count": 9700,
+  "posts_count": 4,
+  "recent_posts": [
+    {
+      "type": "reels",
+      "topic": "dica pro prova"
+    },
+    {
+      "type": "reels",
+      "topic": "O que eu faria se tivesse que fazer a prova novamente"
+    },
+    {
+      "type": "reels",
+      "topic": "Você sabia: sobre a inscrição"
+    },
+    {
+      "type": "static",
+      "topic": "Curso presencial"
+    }
+  ],
+  "scraped_at": "2026-09-21T06:09:39.165519+00:00"
+}
